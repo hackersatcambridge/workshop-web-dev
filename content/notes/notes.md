@@ -1,4 +1,34 @@
-The main source of the workshop content. Do not put a title on this document
 
-You can include images from the `images` folder like this:
-![Richard HaC](images/richard.png)
+# Thinking of the Web
+
+## 
+
+# HTML: Get information in front of users
+
+TBC
+
+## Getting content on the screen
+
+## A selection of tags
+
+## Further Reading
+
+# CSS: Making things pretty
+
+TBC
+
+## Writing Styles with CSS
+
+## Making Sense of Colours and Fonts
+
+## Layout
+
+## Further Reading
+
+# JavaScript: There is no limit
+
+TBC
+
+# Publishing your website
+
+TBC
