@@ -1,0 +1,13 @@
+{
+  "name": "presentation",
+  "version": "0",
+  "main": "",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel index.jsx > index.js"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-env": "^2.4.1"
+  }
+}
