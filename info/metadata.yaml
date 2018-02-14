@@ -1,4 +1,4 @@
-title: Web Dev
+title: Introduction to Web Development
 
 # People who have directly contributed content to this workhsop
 contributors:
@@ -16,6 +16,9 @@ tags:
   - javascript
   - web
   - programming
+  - css
+  - html
+  - design
 
 # A license code by which the workshop content is released
 license: MIT
