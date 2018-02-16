@@ -1,7 +1,16 @@
 
 # Thinking of the Web
 
-## 
+TBC
+
+## The Purpose of the Web
+
+## Design before building
+
+- https://www.figma.com/
+- https://code.visualstudio.com/
+- https://developer.mozilla.org/en-US/
+- https://www.awwwards.com/
 
 # HTML: Get information in front of users
 
