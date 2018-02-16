@@ -2,13 +2,16 @@ function WorkshopContents({ index }) {
   const sections = [
     {
       name: '1. Thinking of the Web',
-      subsections: [],
+      subsections: [
+        'Purposes of the Web',
+        'Designing a Website',
+      ],
     },
     {
       name: '2. HTML',
       subsections: [
-        'Setting up a website project',
-        'Getting content on the screen with basic HTML',
+        'Setting up a Website Project',
+        'Getting Content on the Screen with Basic HTML',
         'Advanced HTML tags',
       ],
     },
@@ -40,7 +43,11 @@ WorkshopContents.setIndex = index => state => Object.assign({ }, state, { index 
 
 function TaskSlide({ children }) {
   return (
-    <div className="TaskSlide" children={children} />
+    <div className="TaskSlide">
+      <HeaderedSlide header={<h1>Task</h1>}>
+        <div className="TaskSlide__contents" children={children} />
+      </HeaderedSlide>
+    </div>
   );
 }
 
@@ -66,21 +73,48 @@ function PopupSlide({ show = false, children }) {
 PopupSlide.show = () => (state) => Object.assign({ }, state, { show: true });
 PopupSlide.hide = () => (state) => Object.assign({ }, state, { show: false });
 
+function HeaderedSlide({ children, header, footer, className = '' }) {
+  return (
+    <div className={`HeaderedSlide ${className}`}>
+      <div className="HeaderedSlide__content HeaderedSlide__header">{header}</div>
+      <div className="HeaderedSlide__content">{children}</div>
+      <div className="HeaderedSlide__content HeaderedSlide__footer">{footer}</div>
+    </div>
+  );
+}
+
+function StrongCode({ children }) {
+  return (<span className="StrongCode" children={children} />);
+}
+
+function Appear({ show, component, children }) {
+  return React.createElement(component, { className: `Appear ${show ? 'Appear--show' : ''}` }, children);
+}
+
+Appear.show = () => state => Object.assign({ }, state, { show: true });
+
 const component = debut.createComponentFromReact(
   <div className="FullSlide">
     <debut.Slider name="main-slider" direction="left">
       <div className="IntroSlide">
         <div className="IntroSlide__foreground" />
       </div>
+      <HeaderedSlide className="BrightSlide">
+        <h1>hackersatcambridge.com/workshops/web-dev</h1>
+        <h3>Notes, Examples, Further Reading</h3>
+      </HeaderedSlide>
       <WorkshopContents name="contents-1" index={null}/>
-      <div className="FullSlide">
-        The web is for information
-      </div>
-      <div className="FullSlide">
-        Think before you leap
-      </div>
+      <HeaderedSlide>
+        <div style={{ textAlign: 'center' }}>
+          <h1>What is the web for?</h1>
+          <Appear component="h3" name="intro-purpose">To distribute information!</Appear>
+        </div>
+      </HeaderedSlide>
+      <HeaderedSlide>
+        <h1>Think Before You Leap</h1>
+      </HeaderedSlide>
       <WorkshopContents name="contents-2" index={0}/>
-      <div className="FullSlide">
+      <HeaderedSlide header={<h1>HTML Syntax</h1>} >
         <debut.SyntaxHighlight language="html">
           <PopOver name="html-1-doctype" label="Start an HTML Document" side="right">{`<!DOCTYPE html>`}</PopOver>{`\n`}
           <PopOver name="html-1-opening" label="Opening Tag" side="left">{`<html>`}</PopOver>{`\n`}
@@ -92,13 +126,16 @@ const component = debut.createComponentFromReact(
           {`  </body>\n`}
           <PopOver name="html-1-closing" label="Closing Tag" side="left">{`</html>`}</PopOver>
         </debut.SyntaxHighlight>
-      </div>
-      <div className="FullSlide">
+      </HeaderedSlide>
+      <HeaderedSlide header={<h1>Names mean something!</h1>}>
         <debut.SyntaxHighlight language="html">
-          <PopOver name="html-2-tagname" label="p is for paragraph" side="bottom">{`<p>`}</PopOver>{`Contents</p>`}
+          {`<h1>`}<StrongCode>H</StrongCode>{`eading Level `}<StrongCode>1</StrongCode>{`</h1>\n`}
+          {`<p>A `}<StrongCode>p</StrongCode>{`aragraph full of text.</p>\n`}
+          {`<h2>`}<StrongCode>H</StrongCode>{`eading Level `}<StrongCode>2</StrongCode>{`</h2>\n`}
+          {`<p>Text can be <em>`}<StrongCode>em</StrongCode>{`phasised (italic)</em>\nor <strong>`}<StrongCode>strong</StrongCode>{` (bold)</strong>`}
         </debut.SyntaxHighlight>
-      </div>
-      <div className="FullSlide">
+      </HeaderedSlide>
+      <HeaderedSlide header={<h1>Linking to Things</h1>}>
         <debut.SyntaxHighlight language="html">
           <PopOver name="html-3-anchor" side="left" label="Anchor (Link)">{`<a `}</PopOver>
           <PopOver name="html-3-attribute-name" label="Attribute name" side="top">href</PopOver>
@@ -106,36 +143,54 @@ const component = debut.createComponentFromReact(
           <PopOver name="html-3-attribute-value" label="Where you want to go (value)" side="bottom">https://google.com</PopOver>
           {`">Google</a>`}
         </debut.SyntaxHighlight>
-      </div>
-      <div className="FullSlide">
+      </HeaderedSlide>
+      <HeaderedSlide header={<h1>Displaying Images</h1>}>
         <debut.SyntaxHighlight language="html">
           <PopOver name="html-4-image" side="left" label="Image">{`<img`}</PopOver>{` `}
           <PopOver name="html-4-src" side="bottom" label="'Source' of the image">{`src="my-image.jpg"`}</PopOver>{` `}
           <PopOver name="html-4-alt" side="top" label="Description of the image">{`alt="A dog"`}</PopOver>
           <PopOver name="html-4-closing" side="bottom" label="Self-closing!">{' />'}</PopOver>
         </debut.SyntaxHighlight>
-      </div>
-      <div className="FullSlide">
-        Is there a video tag?
-      </div>
+      </HeaderedSlide>
+      <HeaderedSlide>
+        <h1>Is there a video tag?</h1>
+      </HeaderedSlide>
+      <WorkshopContents name="contents-2" index={1}/>
     </debut.Slider>
     <PopupSlide name="html-task-1">
-      <TaskSlide>Create a folder, create index.html, open in browser</TaskSlide>
+      <TaskSlide>
+        <div>Create a folder for your website</div>
+        <div>Create a <code>index.html</code> file and open it in your browser</div>
+        <div>Think about a topic for your website.</div>
+        <div>What do you want it to look like? Look at other websites for inspiration.</div>
+      </TaskSlide>
     </PopupSlide>
     <PopupSlide name="html-task-2">
-      <TaskSlide>Add your boilerplate (doctype, html and body tags). Create some content with h1-6, p, em and strong tags. What does the del tag do?</TaskSlide>
+      <TaskSlide>
+        <div>Add your setup code for an HTML document (doctype, html and body tags).</div>
+        <div>Create some content with <code>h1-6</code>, <code>p</code>, <code>em</code> and <code>strong</code> tags.</div>
+        <div>Here are some tags you may want to investigate: <code>del</code>, <code>ul</code>, <code>li</code>, <code>ol</code></div>
+      </TaskSlide>
     </PopupSlide>
-    <PopupSlide name="html-task-2">
-      <TaskSlide>Add links to your website. Add image (try unsplash). Embed a video. Do you have a favourite tweet you want to embed?</TaskSlide>
+    <PopupSlide name="html-task-3">
+      <TaskSlide>
+        <div>Add links to your website with <code>a</code>.</div>
+        <div>Add an image or two (try pexels.com).</div>
+        <div>Embed a video.</div>
+        <div>Other media sites have support for embedding. Try embedding a tweet or a Facebook like button.</div>
+      </TaskSlide>
     </PopupSlide>
   </div>
 )
 
 const actions = debut.actionsForComponent(component, action => [
   action('main-slider', debut.Slider.advance()),
+  action('main-slider', debut.Slider.advance()),
+
   // Section 1
   action('contents-1', WorkshopContents.setIndex(0)),
   action('main-slider', debut.Slider.advance()),
+  action('intro-purpose', Appear.show()),
   action('main-slider', debut.Slider.advance()),
   action('main-slider', debut.Slider.advance()),
 
@@ -152,7 +207,6 @@ const actions = debut.actionsForComponent(component, action => [
   action('html-1-heading', PopOver.show()),
   action('html-1-content', PopOver.show()),
   action('main-slider', debut.Slider.advance()),
-  action('html-2-tagname', PopOver.show()),
   action('html-task-2', PopupSlide.show()),
   [
     action('html-task-2', PopupSlide.hide()),
@@ -167,6 +221,11 @@ const actions = debut.actionsForComponent(component, action => [
   action('html-4-alt', PopOver.show()),
   action('html-4-closing', PopOver.show()),
   action('main-slider', debut.Slider.advance()),
+  action('html-task-3', PopupSlide.show()),
+  [
+    action('html-task-3', PopupSlide.hide()),
+    action('main-slider', debut.Slider.advance()),
+  ],
 ]);
 
 ReactDOM.render(<debut.Presentation actions={actions} root={component} size={{ width: 1600, height: 900 }} />, document.getElementById('root'));
