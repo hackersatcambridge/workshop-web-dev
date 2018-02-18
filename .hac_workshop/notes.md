@@ -329,7 +329,7 @@ I know I promised we were going to make the website look better, not _worse_. We
 
 ### Syntax
 
-We're still writing these notes. Check back later for more! See if you can find out more about CSS on you're own for now.
+We're still writing these notes. Check back later for more! See if you can find out more about CSS on your own for now.
 
 ### Your First Styles
 
