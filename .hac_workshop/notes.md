@@ -290,9 +290,48 @@ This website has content, but it doesn't look very good. Next we'll be focusing 
 
 # 3. CSS: Adding Style
 
-TBC
+At the end of the last section, we left you with a website you could fill with content, but it didn't look particularly nice. CSS is the next language we'll be exploring and it describes what HTML looks like. We call this styling!
 
 ## 3.1 Writing Styles with CSS
+
+### Setting Up
+
+CSS code lives in its own file, separate from HTML. Start by making a new file, in the same folder as `index.html`, called `main.css`. `css` because we're making a CSS file, and `main`, again, by convention.
+
+Fill it with this content, so we can tell that the styles are working - we'll go over exactly what this means later.
+
+```css
+body {
+  background: blue;
+}
+```
+
+To tell your browser to use this file for your html document, you need to add an HTML tag in your `head` element (the stuff the user can't see).
+
+```html
+<link rel="stylesheet" href="main.css" />
+```
+
+This is simply saying "use this file I'm giving you as a stylesheet". Notice the `main.css` in the `href` attribute matches the name we gave the file eariler.
+
+Save everything and refresh the page, you should see a beautiful sea of blue.
+
+![](markdown_images/css-blue-page.jpg)
+
+I know I promised we were going to make the website look better, not _worse_. We'll get there in a moment.
+
+---
+
+**Task**: Add a `main.css` file with the example snippet above.
+**Task**: Add a `link` tag to the `head` element of your `index.html`. Refresh the page and verify that your website is indeed blue.
+
+---
+
+### Syntax
+
+We're still writing these notes. Check back later for more! See if you can find out more about CSS on you're own for now.
+
+### Your First Styles
 
 ## 3.2 Making Sense of Colours and Fonts
 
@@ -302,8 +341,4 @@ TBC
 
 # 4. JavaScript: Make it Interactive
 
-TBC
-
 # 5. Publishing your website
-
-TBC
