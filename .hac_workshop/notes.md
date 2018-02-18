@@ -64,10 +64,10 @@ This is just your browser showing you an empty website. We'll soon fill it with 
 
 ---
 
-**Task**: Get a text editor/JSBin ready  
-**Task**: Open a new folder  
-**Task**: Make an empty `index.html` file  
-**Task**: Open it in your web browser  
+**Task**: Get a text editor/JSBin ready.  
+**Task**: Open a new folder.  
+**Task**: Make an empty `index.html` file.  
+**Task**: Open it in your web browser.
 
 ---
 
@@ -127,7 +127,7 @@ What's going on with this code you just put in? Stepping through it line by line
 
 ---
 
-**Task**: Add this content to your `index.html` file.
+**Task**: Add this content to your `index.html` file.  
 **Task**: Give your website a heading that is more fitting for your content.
 
 ---
@@ -160,7 +160,7 @@ This is some text that I am <em>emphasising</em>. I am also making it <strong>st
 
 ---
 
-**Task**: Let your reader know what is important by emphasising and strengthening some of your content.
+**Task**: Let your reader know what is important by emphasising and strengthening some of your content.  
 **Challenge**: There are many more tags you can use. Can you find out what `<small>`, `<ul>`, `<ol>` and `<table>` are for, and put them to use?
 
 ---
@@ -185,7 +185,7 @@ This means that you cannot just type `google.com` to link to `https://google.com
 
 ---
 
-**Task**: Add some links to your favourite websites
+**Task**: Add some links to your favourite websites.  
 **Challenge**: Want your website to have more pages? Try adding another page, (e.g. `mypage.html`), in the same folder as `index.html` and linking to it.
 
 ---
@@ -250,7 +250,7 @@ Lots of websites allow for this, such as Twitter and Facebook.
 
 ---
 
-**Task**: Embed a video into your website.
+**Task**: Embed a video into your website.  
 **Challenge**: Try embedding another kind of media, such as a tweet or Facebook like button.
 
 ---
@@ -322,7 +322,7 @@ I know I promised we were going to make the website look better, not _worse_. We
 
 ---
 
-**Task**: Add a `main.css` file with the example snippet above.
+**Task**: Add a `main.css` file with the example snippet above.  
 **Task**: Add a `link` tag to the `head` element of your `index.html`. Refresh the page and verify that your website is indeed blue.
 
 ---
