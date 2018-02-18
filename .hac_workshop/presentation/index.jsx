@@ -132,7 +132,9 @@ const component = debut.createComponentFromReact(
           {`<h1>`}<StrongCode>H</StrongCode>{`eading Level `}<StrongCode>1</StrongCode>{`</h1>\n`}
           {`<p>A `}<StrongCode>p</StrongCode>{`aragraph full of text.</p>\n`}
           {`<h2>`}<StrongCode>H</StrongCode>{`eading Level `}<StrongCode>2</StrongCode>{`</h2>\n`}
-          {`<p>Text can be <em>`}<StrongCode>em</StrongCode>{`phasised (italic)</em>\nor <strong>`}<StrongCode>strong</StrongCode>{` (bold)</strong>`}
+          {`<p>\n`}
+          {`  Text can be <em>`}<StrongCode>em</StrongCode>{`phasised (italic)</em>\nor <strong>`}<StrongCode>strong</StrongCode>{` (bold)</strong>\n`}
+          {`</p>`}
         </debut.SyntaxHighlight>
       </HeaderedSlide>
       <HeaderedSlide header={<h1>Linking to Things</h1>}>
@@ -159,7 +161,7 @@ const component = debut.createComponentFromReact(
     </debut.Slider>
     <PopupSlide name="html-task-1">
       <TaskSlide>
-        <div>Create a folder for your website</div>
+        <div>Create a folder for your website.</div>
         <div>Create a <code>index.html</code> file and open it in your browser</div>
         <div>Think about a topic for your website.</div>
         <div>What do you want it to look like? Look at other websites for inspiration.</div>
@@ -169,10 +171,20 @@ const component = debut.createComponentFromReact(
       <TaskSlide>
         <div>Add your setup code for an HTML document (doctype, html and body tags).</div>
         <div>Create some content with <code>h1-6</code>, <code>p</code>, <code>em</code> and <code>strong</code> tags.</div>
-        <div>Here are some tags you may want to investigate: <code>del</code>, <code>ul</code>, <code>li</code>, <code>ol</code></div>
+        <div><strong>Challenge:</strong> Can you find out what these tags do and use them? <code>small</code>, <code>ul</code>, <code>ol</code>, <code>table.</code></div>
       </TaskSlide>
     </PopupSlide>
     <PopupSlide name="html-task-3">
+      <TaskSlide>
+        <div>Add links to your website with <code>a</code>.</div>
+        <div><strong>Challenge:</strong> Do you want your website to have multiple pages? Create a second page and link to it from the first.</div>
+        <div>Add an image or two (try pexels.com).</div>
+        <div>Embed a video.</div>
+        <div><strong>Challenge:</strong> Other media sites have support for embedding. Try embedding a tweet or a Facebook like button.</div>
+        <div>Give your website a title using <code>head</code> and <code>title</code>.</div>
+      </TaskSlide>
+    </PopupSlide>
+    <PopupSlide name="html-task-4">
       <TaskSlide>
         <div>Add links to your website with <code>a</code>.</div>
         <div>Add an image or two (try pexels.com).</div>

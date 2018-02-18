@@ -202,7 +202,7 @@ var component = debut.createComponentFromReact(_jsx('div', {
   header: _jsx('h1', {}, void 0, 'Names mean something!')
 }, void 0, _jsx(debut.SyntaxHighlight, {
   language: 'html'
-}, void 0, '<h1>', _jsx(StrongCode, {}, void 0, 'H'), 'eading Level ', _jsx(StrongCode, {}, void 0, '1'), '</h1>\n', '<p>A ', _jsx(StrongCode, {}, void 0, 'p'), 'aragraph full of text.</p>\n', '<h2>', _jsx(StrongCode, {}, void 0, 'H'), 'eading Level ', _jsx(StrongCode, {}, void 0, '2'), '</h2>\n', '<p>Text can be <em>', _jsx(StrongCode, {}, void 0, 'em'), 'phasised (italic)</em>\nor <strong>', _jsx(StrongCode, {}, void 0, 'strong'), ' (bold)</strong>')), _jsx(HeaderedSlide, {
+}, void 0, '<h1>', _jsx(StrongCode, {}, void 0, 'H'), 'eading Level ', _jsx(StrongCode, {}, void 0, '1'), '</h1>\n', '<p>A ', _jsx(StrongCode, {}, void 0, 'p'), 'aragraph full of text.</p>\n', '<h2>', _jsx(StrongCode, {}, void 0, 'H'), 'eading Level ', _jsx(StrongCode, {}, void 0, '2'), '</h2>\n', '<p>\n', '  Text can be <em>', _jsx(StrongCode, {}, void 0, 'em'), 'phasised (italic)</em>\nor <strong>', _jsx(StrongCode, {}, void 0, 'strong'), ' (bold)</strong>\n', '</p>')), _jsx(HeaderedSlide, {
   header: _jsx('h1', {}, void 0, 'Linking to Things')
 }, void 0, _jsx(debut.SyntaxHighlight, {
   language: 'html'
@@ -243,10 +243,12 @@ var component = debut.createComponentFromReact(_jsx('div', {
   index: 1
 })), _jsx(PopupSlide, {
   name: 'html-task-1'
-}, void 0, _jsx(TaskSlide, {}, void 0, _jsx('div', {}, void 0, 'Create a folder for your website'), _jsx('div', {}, void 0, 'Create a ', _jsx('code', {}, void 0, 'index.html'), ' file and open it in your browser'), _jsx('div', {}, void 0, 'Think about a topic for your website.'), _jsx('div', {}, void 0, 'What do you want it to look like? Look at other websites for inspiration.'))), _jsx(PopupSlide, {
+}, void 0, _jsx(TaskSlide, {}, void 0, _jsx('div', {}, void 0, 'Create a folder for your website.'), _jsx('div', {}, void 0, 'Create a ', _jsx('code', {}, void 0, 'index.html'), ' file and open it in your browser'), _jsx('div', {}, void 0, 'Think about a topic for your website.'), _jsx('div', {}, void 0, 'What do you want it to look like? Look at other websites for inspiration.'))), _jsx(PopupSlide, {
   name: 'html-task-2'
-}, void 0, _jsx(TaskSlide, {}, void 0, _jsx('div', {}, void 0, 'Add your setup code for an HTML document (doctype, html and body tags).'), _jsx('div', {}, void 0, 'Create some content with ', _jsx('code', {}, void 0, 'h1-6'), ', ', _jsx('code', {}, void 0, 'p'), ', ', _jsx('code', {}, void 0, 'em'), ' and ', _jsx('code', {}, void 0, 'strong'), ' tags.'), _jsx('div', {}, void 0, 'Here are some tags you may want to investigate: ', _jsx('code', {}, void 0, 'del'), ', ', _jsx('code', {}, void 0, 'ul'), ', ', _jsx('code', {}, void 0, 'li'), ', ', _jsx('code', {}, void 0, 'ol')))), _jsx(PopupSlide, {
+}, void 0, _jsx(TaskSlide, {}, void 0, _jsx('div', {}, void 0, 'Add your setup code for an HTML document (doctype, html and body tags).'), _jsx('div', {}, void 0, 'Create some content with ', _jsx('code', {}, void 0, 'h1-6'), ', ', _jsx('code', {}, void 0, 'p'), ', ', _jsx('code', {}, void 0, 'em'), ' and ', _jsx('code', {}, void 0, 'strong'), ' tags.'), _jsx('div', {}, void 0, _jsx('strong', {}, void 0, 'Challenge:'), ' Can you find out what these tags do and use them? ', _jsx('code', {}, void 0, 'small'), ', ', _jsx('code', {}, void 0, 'ul'), ', ', _jsx('code', {}, void 0, 'ol'), ', ', _jsx('code', {}, void 0, 'table.')))), _jsx(PopupSlide, {
   name: 'html-task-3'
+}, void 0, _jsx(TaskSlide, {}, void 0, _jsx('div', {}, void 0, 'Add links to your website with ', _jsx('code', {}, void 0, 'a'), '.'), _jsx('div', {}, void 0, _jsx('strong', {}, void 0, 'Challenge:'), ' Do you want your website to have multiple pages? Create a second page and link to it from the first.'), _jsx('div', {}, void 0, 'Add an image or two (try pexels.com).'), _jsx('div', {}, void 0, 'Embed a video.'), _jsx('div', {}, void 0, _jsx('strong', {}, void 0, 'Challenge:'), ' Other media sites have support for embedding. Try embedding a tweet or a Facebook like button.'), _jsx('div', {}, void 0, 'Give your website a title using ', _jsx('code', {}, void 0, 'head'), ' and ', _jsx('code', {}, void 0, 'title'), '.'))), _jsx(PopupSlide, {
+  name: 'html-task-4'
 }, void 0, _jsx(TaskSlide, {}, void 0, _jsx('div', {}, void 0, 'Add links to your website with ', _jsx('code', {}, void 0, 'a'), '.'), _jsx('div', {}, void 0, 'Add an image or two (try pexels.com).'), _jsx('div', {}, void 0, 'Embed a video.'), _jsx('div', {}, void 0, 'Other media sites have support for embedding. Try embedding a tweet or a Facebook like button.')))));
 
 var actions = debut.actionsForComponent(component, function (action) {

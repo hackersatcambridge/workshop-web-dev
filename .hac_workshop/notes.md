@@ -160,7 +160,8 @@ This is some text that I am <em>emphasising</em>. I am also making it <strong>st
 
 ---
 
-**Task**: Let your reader know what is important by emphasising and strengthening some of your content
+**Task**: Let your reader know what is important by emphasising and strengthening some of your content.
+**Challenge**: There are many more tags you can use. Can you find out what `<small>`, `<ul>`, `<ol>` and `<table>` are for, and put them to use?
 
 ---
 
@@ -185,7 +186,7 @@ This means that you cannot just type `google.com` to link to `https://google.com
 ---
 
 **Task**: Add some links to your favourite websites
-**Task**: Want your website to have more pages? Try adding another page, (e.g. `mypage.html`), in the same folder as `index.html` and linking to it.
+**Challenge**: Want your website to have more pages? Try adding another page, (e.g. `mypage.html`), in the same folder as `index.html` and linking to it.
 
 ---
 
@@ -229,7 +230,7 @@ It's still quite oversized! We'll go over how to make these images behave proper
 
 ---
 
-## 2.5 Embedding Other Media
+## 2.6 Embedding Other Media
 
 You may want to embed other kinds of media, such as video. There _is_ a `<video>` tag but sourcing and hosting video is rather difficult. Fortunately, popular hosting websites like [YouTube](https://youtube.com).
 
@@ -250,11 +251,11 @@ Lots of websites allow for this, such as Twitter and Facebook.
 ---
 
 **Task**: Embed a video into your website.
-**Task**: Try embedding another kind of media, such as a tweet or Facebook like button.
+**Challenge**: Try embedding another kind of media, such as a tweet or Facebook like button.
 
 ---
 
-## 2.6 The `<head>` Tag
+## 2.7 The `<head>` Tag
 
 Earlier, we introduced you to the `body` tag. This is everything the user can _see on the page_. What about other things? You'll notice this ugly "index.html" in your tab bar. Other websites have a useful description of what they are.
 
@@ -283,7 +284,7 @@ Much better!
 
 ---
 
-This is all we have to say on HTML for now. You can see the finished result [here](../02-html).
+This is all we have to say on HTML for now. You can see the finished result [in the 02-html folder of the examples repo](../02-html).
 
 This website has content, but it doesn't look very good. Next we'll be focusing on how to add styles with CSS to make it visually appealing.
 

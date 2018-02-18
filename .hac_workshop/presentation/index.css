@@ -135,6 +135,10 @@ html {
   margin-bottom: 1rem;
 }
 
+.TaskSlide__contents > :last-child {
+  margin-bottom: 0;
+}
+
 /* PopOver
    ========================================================================== */
 
