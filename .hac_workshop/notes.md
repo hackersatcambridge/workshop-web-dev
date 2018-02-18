@@ -2,13 +2,13 @@
 
 This workshop will leave you with the ability to create your own website. Not only will we teach you how to code, but we'll be covering some of the tools and thought processes you may use to design and create content for your website.
 
-So before we write a line of code, let's think a little bit about what you'd want your website to achieve.
+Before we write a line of code, let's think a little bit about what you'd want your website to achieve.
 
 ## 1.1 The Purpose of the Web
 
 The initial purpose of the "world wide web" was to distribute information. A _web_ of interconnected documents that made all human knowledgeable accessible simply by clicking.
 
-Since its inception, the web has expanded to do a lot more than that. Nowadays we can write documents, order food, play games and more on the web but its primariy purpose is still as strong as ever.
+Since its inception, the web has expanded to do a lot more than that. Nowadays we can write documents, order food, play games and more on the web but its primary purpose is still as strong as ever.
 
 In this workshop we'll cover the purpose of distributing information, by trying to make a website that does exactly that. It will, however, give you a springboard to explore all those other things the web can do nowadays.
 
@@ -16,7 +16,7 @@ It will help to be aware and critical when visiting websites. Does a website let
 
 ## 1.2 Design Before Building
 
-The most useful thing that you can do before setting out to create your website is decide what it will be about. Is there a cause you're passionate about, a project you did, or a blog you want to start? If you're struggling for ideas, a personal website is a good place to start. This is like an online CV or a LinkedIn page with a little more personality.
+The most useful thing that you can do before setting out to create your website is deciding what it will be about. Is there a cause you're passionate about, a project you did, or a blog you want to start? If you're struggling for ideas, a personal website is a good place to start. This is like an online CV or a LinkedIn page with a little more personality.
 
 Once you know what you're trying to convey, it can help to think a little bit about what you want it to look like. This will help to keep you focused when creating it, and also give you some real goals to reach when learning how.
 
