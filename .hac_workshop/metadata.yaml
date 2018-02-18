@@ -8,7 +8,7 @@ contributors:
 thanks: []
 
 # (optional) Link to any slides associated with the workshop
-slides_link: https://rawgit.com/hackersatcambridge/workshop-web-dev/master/.hac_workshop/presentation/index.html
+slides_link: /presentation/index.html
 
 # A set of keywords associated with the workshop
 tags:
