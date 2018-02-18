@@ -32,7 +32,7 @@ html {
    ========================================================================== */
 
 .IntroSlide {
-  background: url(../info/promo_images/bg.jpg);
+  background: url(../promo_images/bg.jpg);
   background-size: cover;
   background-position: center;
   position: absolute;
@@ -43,7 +43,7 @@ html {
 }
 
 .IntroSlide__foreground {
-  background: url(../info/promo_images/fg.png);
+  background: url(../promo_images/fg.png);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
