@@ -202,7 +202,7 @@ var component = debut.createComponentFromReact(_jsx('div', {
   header: _jsx('h1', {}, void 0, 'Names mean something!')
 }, void 0, _jsx(debut.SyntaxHighlight, {
   language: 'html'
-}, void 0, '<h1>', _jsx(StrongCode, {}, void 0, 'H'), 'eading Level ', _jsx(StrongCode, {}, void 0, '1'), '</h1>\n', '<p>A ', _jsx(StrongCode, {}, void 0, 'p'), 'aragraph full of text.</p>\n', '<h2>', _jsx(StrongCode, {}, void 0, 'H'), 'eading Level ', _jsx(StrongCode, {}, void 0, '2'), '</h2>\n', '<p>\n', '  Text can be <em>', _jsx(StrongCode, {}, void 0, 'em'), 'phasised (italic)</em>\nor <strong>', _jsx(StrongCode, {}, void 0, 'strong'), ' (bold)</strong>\n', '</p>')), _jsx(HeaderedSlide, {
+}, void 0, '<h1>', _jsx(StrongCode, {}, void 0, 'H'), 'eading Level ', _jsx(StrongCode, {}, void 0, '1'), '</h1>\n', '<p>A ', _jsx(StrongCode, {}, void 0, 'p'), 'aragraph full of text.</p>\n', '<h2>', _jsx(StrongCode, {}, void 0, 'H'), 'eading Level ', _jsx(StrongCode, {}, void 0, '2'), '</h2>\n', '<p>\n', '  Text can be <em>', _jsx(StrongCode, {}, void 0, 'em'), 'phasised (italic)</em>\n', '  or <strong>', _jsx(StrongCode, {}, void 0, 'strong'), ' (bold)</strong>\n', '</p>')), _jsx(HeaderedSlide, {
   header: _jsx('h1', {}, void 0, 'Linking to Things')
 }, void 0, _jsx(debut.SyntaxHighlight, {
   language: 'html'

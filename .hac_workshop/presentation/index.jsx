@@ -133,7 +133,8 @@ const component = debut.createComponentFromReact(
           {`<p>A `}<StrongCode>p</StrongCode>{`aragraph full of text.</p>\n`}
           {`<h2>`}<StrongCode>H</StrongCode>{`eading Level `}<StrongCode>2</StrongCode>{`</h2>\n`}
           {`<p>\n`}
-          {`  Text can be <em>`}<StrongCode>em</StrongCode>{`phasised (italic)</em>\nor <strong>`}<StrongCode>strong</StrongCode>{` (bold)</strong>\n`}
+          {`  Text can be <em>`}<StrongCode>em</StrongCode>{`phasised (italic)</em>\n`}
+          {`  or <strong>`}<StrongCode>strong</StrongCode>{` (bold)</strong>\n`}
           {`</p>`}
         </debut.SyntaxHighlight>
       </HeaderedSlide>
