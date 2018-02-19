@@ -9,16 +9,16 @@ function WorkshopContents(_ref) {
     name: '1. Thinking of the Web',
     subsections: ['Purposes of the Web', 'Designing a Website']
   }, {
-    name: '2. HTML',
+    name: '2. HTML: Displaying Information',
     subsections: ['Setting up a Website Project', 'Getting Content on the Screen with Basic HTML', 'Advanced HTML tags']
   }, {
-    name: '3. CSS',
+    name: '3. CSS: Adding Style',
     subsections: []
   }, {
-    name: '4. jS',
+    name: '4. JavaScript: Make it Interactive',
     subsections: []
   }, {
-    name: '5. Publish',
+    name: '5. Publishing your Website',
     subsections: []
   }];
 
@@ -123,7 +123,7 @@ function HeaderedSlide(_ref8) {
   }, void 0, _jsx('div', {
     className: 'HeaderedSlide__content HeaderedSlide__header'
   }, void 0, header), _jsx('div', {
-    className: 'HeaderedSlide__content'
+    className: 'HeaderedSlide__content HeaderedSlide__main'
   }, void 0, children), _jsx('div', {
     className: 'HeaderedSlide__content HeaderedSlide__footer'
   }, void 0, footer));

@@ -42,7 +42,7 @@ I'll explain the bits and pieces as we make them, but it's a good place to start
 
 Now that we've thought a little bit about our goals, we can actually start building something. Let's move onto the first language of the web: *HTML*.
 
-# 2. HTML: Displaying Informations
+# 2. HTML: Displaying Information
 
 ## 2.1 Setting Up
 

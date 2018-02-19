@@ -8,7 +8,7 @@ function WorkshopContents({ index }) {
       ],
     },
     {
-      name: '2. HTML',
+      name: '2. HTML: Displaying Information',
       subsections: [
         'Setting up a Website Project',
         'Getting Content on the Screen with Basic HTML',
@@ -16,15 +16,15 @@ function WorkshopContents({ index }) {
       ],
     },
     {
-      name: '3. CSS',
+      name: '3. CSS: Adding Style',
       subsections: [],
     },
     {
-      name: '4. jS',
+      name: '4. JavaScript: Make it Interactive',
       subsections: [],
     },
     {
-      name: '5. Publish',
+      name: '5. Publishing your Website',
       subsections: [],
     },
   ]
@@ -77,7 +77,7 @@ function HeaderedSlide({ children, header, footer, className = '' }) {
   return (
     <div className={`HeaderedSlide ${className}`}>
       <div className="HeaderedSlide__content HeaderedSlide__header">{header}</div>
-      <div className="HeaderedSlide__content">{children}</div>
+      <div className="HeaderedSlide__content HeaderedSlide__main">{children}</div>
       <div className="HeaderedSlide__content HeaderedSlide__footer">{footer}</div>
     </div>
   );
