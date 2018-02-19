@@ -12,6 +12,17 @@ Watch the video recordings (when they're up) to get the best idea of how the con
 
 This workshop works well when run with a competition for best website at the end. Mention this to attendees when you start (and keep reminding them at every session).
 
+## Links to Open for Each Section
+
+- Section 1:
+   - https://developer.mozilla.org/ - Examing web design
+   - https://awwapp.com/ - Online whiteboard for designing a website
+- Section 2:
+   - https://hackersatcambridge.com/ - Editing a website to see that HTML is just code
+   - https://developer.mozilla.org/ - Documentation on the web
+   - https://pexels.com/ - Finding images
+   - https://youtube.com/ - Finding videos
+
 ## Practical Sections and Demonstrators
 
 The purpose of this workshop is to spend as much time in the practical sessions, with questions being asked directly to demonstrators. Demonstrators should distribute themselves in the room, introducing themselves to people as they come in.
