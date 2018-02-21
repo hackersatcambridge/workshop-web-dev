@@ -11,6 +11,8 @@ thanks: []
 # (optional) Link to any slides associated with the workshop
 slides_link: presentation/index.html
 
+recording_link: https://www.youtube.com/watch?v=7Le4Te3GJdA&list=PLC-8dKj3F0NX82o7-5zAynFkfvK-m6HKw
+
 # A set of keywords associated with the workshop
 tags:
   - beginner
