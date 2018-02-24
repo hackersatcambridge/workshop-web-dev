@@ -284,7 +284,7 @@ Much better!
 
 ---
 
-This is all we have to say on HTML for now. You can see the finished result [in the example-01-html folder of the examples repo](../example-01-html).
+This is all we have to say on HTML for now. You can see the finished result [in the example-01-html folder of the examples repo](https://github.com/hackersatcambridge/workshop-web-dev/tree/master/example-01-html).
 
 This website has content, but it doesn't look very good. Next we'll be focusing on how to add styles with CSS to make it visually appealing.
 
@@ -600,8 +600,8 @@ Try experimenting with the properties using this class:
 
 ---
 
-**Task**: Experiment with the box model properties.
-**Challenge**: Adding a direction to `margin`, `padding`, or `border` makes it only operate in that direction (such as `padding-left`). Experiment with those properties.
+**Task**: Experiment with the box model properties.  
+**Challenge**: Adding a direction to `margin`, `padding`, or `border` makes it only operate in that direction (such as `padding-left`). Experiment with those properties.  
 **Challenge**: Emphasise another area of your website by putting it in a coloured box with some padding.
 
 ---
@@ -830,7 +830,7 @@ And now, the website behaves on mobile.
 
 ## 3.8 Further Reading
 
-We've dramatically improved this website by using CSS. View the final result in the [example-02-css folder](../example-02-css).
+We've dramatically improved this website by using CSS. View the final result in the [example-02-css folder](https://github.com/hackersatcambridge/workshop-web-dev/tree/master/example-02-css).
 
 You now have the foundations to start exploring a bunch of different concepts.
 
