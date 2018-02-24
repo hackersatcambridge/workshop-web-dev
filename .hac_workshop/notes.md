@@ -284,7 +284,7 @@ Much better!
 
 ---
 
-This is all we have to say on HTML for now. You can see the finished result [in the 02-html folder of the examples repo](../02-html).
+This is all we have to say on HTML for now. You can see the finished result [in the example-01-html folder of the examples repo](../example-01-html).
 
 This website has content, but it doesn't look very good. Next we'll be focusing on how to add styles with CSS to make it visually appealing.
 
@@ -329,15 +329,521 @@ I know I promised we were going to make the website look better, not _worse_. We
 
 ### Syntax
 
-We're still writing these notes. Check back later for more! See if you can find out more about CSS on your own for now.
+CSS syntax is really simple:
 
-### Your First Styles
+```css
+selector {
+    property1: value1;
+    property2: value2;
+}
+```
+
+The selector allows us to select an HTML element (or a group of them) and apply different properties to them using the `property: value` syntax. These properties vary far and wide and can do a lot of things such as change the colour, size of the text or where the element is located on the page.
+
+### Selecting Elements: Your First Styles
+
+There are lots of kinds of selectors. One is the element selector, which applies the style to all elements of the given name. Looking back at the snippet you copied verbatim, we can see what this is doing:
+
+```css
+body {
+    background: blue;
+}
+```
+
+This applies the style (a blue background) to the `body` element (everything the user can see).
+
+We can apply more styles to the body, such as changing the colour of the text. This is done with the `color` property (_note the American English spelling_).
+
+```css
+body {
+    background: blue;
+    color: white;
+}
+```
+
+![](markdown_images/css-white-text.png)
+
+At least we can read the text a bit better. But those links down the bottom, they're still pretty hard to see. We can apply a style to all `a` elements on the page.
+
+```css
+a {
+    color: yellow;
+}
+```
+
+![](markdown_images/css-yellow-links.png)
+
+---
+
+**Task**: Colour your background, text and links. Try giving your headings a different colour.
+
+---
+
+Finally it's time to abandon these awful colours and actually make this look good.
 
 ## 3.2 Making Sense of Colours and Fonts
 
-## 3.3 Layout
+Some of the easiest steps we can take towards a less visually offensive website is by changing the fonts and colours.
 
-## 3.4 Further Reading
+### Colours in CSS
+
+Are we restricted to a small set of colour names like `blue`, `yellow`, `white`, etc. ? Not at all! In fact, all browsers treat these colours slightly differently, so we'd be wise to steer away from them if we want more precise results.
+
+You can describe any colour the screen can render in CSS. There are many different ways to do this, but to actually create the colours on the fly requires an understanding of how computers understand colour which isn't strictly necessary for creating websites. 
+
+![](markdown_images/css-colors.gif)
+
+In the above image, you'll see various different representations for the same colour. None of them make intuitive sense if you're not familiar with the format.
+
+It's easier to pick the colours visually, and use the code some software gives you. One tool you can use is [Coolors](https://coolors.co). It can randomly generate entire colour schemes for you, which gives you a selection of colours to choose from.
+
+![](markdown_images/css-coolors.png)
+
+You can also lock colours in, so when generating new schemes, it keeps the colours you want. In my website, I know I want a bright blue, so I generate new schemes until I see a bright blue. Then I lock it, and generate new schemes. I can also tweak colours with the colour picker. After a while, I turned up with this:
+
+![](markdown_images/css-coolors-final.png)
+
+Those "hex strings" at the bottom (like `#EF476F`) are the colours you can put in CSS. From this scheme, I've decided to allocate different colours to different parts of my website:
+
+- I want the background to be that off white colour (2nd)
+- I want text to be the lighter of the dark colours (4th)
+- I want links to be the bright blue (3rd)
+- I want headings to be the green (1st)
+
+With a bit of CSS, I can make this happen
+
+```css
+body {
+  background: #F2F7F9;
+  color: #535982;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #8A9E62;
+}
+
+a {
+  font-weight: bold;
+  color: #5887FF;
+}
+```
+
+Using commas between selectors (`h1, h2, h3, h4, h5, h6`) allows the selection of multiple elements (all heading elements). `font-weight: bold` makes the links bold so they stand out a bit.
+
+![](markdown_images/css-website-colors.png)
+
+That's looking a lot better.
+
+---
+
+**Task**: With Coolors or otherwise, pick some colours for your website.  
+**Task**: Apply some tasteful colours to your website.
+
+---
+
+### Fonts
+
+The fonts on a website are a large part of its personality.
+
+There are countless fonts to choose from, but they need to be on a user's system for them to be visible on a website. Fortunately, CSS allows websites to download fonts on the fly for use.
+
+Where do we find fonts that we can use for free? [Google Fonts](https://fonts.google.com) is a particularly good resource for this. It lets you browse hundreds of fonts, and easily include any number of them on your website.
+
+You can add fonts that you like the look of by clicking on the plus buttons next to them, and then you're given embed instructions. I like the look of "Muli".
+
+![](markdown_images/css-fonts.png)
+
+Under the "customize" tab, you can choose the _variants_ of the particular fonts you've chosen. Because I use italics and bold on my website, I've added the "bold" and "italic" variants.
+
+![](markdown_images/css-fonts-customize.png)
+
+Ready to embed, I go back to the "embed" tab and follow the instructions. "Add the code to your `<head>` tag". My head now looks like this:
+
+```html
+<head>
+    <title>Web Design Tips</title>
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="main.css" />
+</head>
+```
+
+And by adding `font-family: 'Muli', sans-serif;` to my body CSS, my website is transformed once more!
+
+![](markdown_images/css-website-fonts.png)
+
+---
+
+**Task**: Find a font on [Google Fonts](https://fonts.google.com) that you want to use.  
+**Task**: Embed them on your website.  
+**Challenge**: You can use different fonts in different places - such as in the headings. Find a different font and use it in different elements on your website.
+
+---
+
+## 3.3 Classes: Fine-grained Selectors
+
+We can now target elements and style them, this is great. But what if we just wanted to target _one_ `<p>` element instead of all of them? For example, I want the introduction paragraph on my website to be slightly bigger. Well, that's where classes come in. We can define a class as an attribute of an element and then select that class in CSS. For example
+
+```html
+<p class="introduction-text">Foo bar</p>
+```
+
+```css
+.introduction-text {
+  font-size: 1.2em;
+}
+```
+
+See the `.` in front of the selector in the CSS code? That's how to select a class.
+
+_em units_: We set the `font-size` of the emphasis paragraph to `1.5em`. `em` units are a relative unit, meaning it depends on the font size of its parent. So by specifying 1.2, we are saying that `.introduction-text` elements should have a font _1.2 times bigger_ than its container.
+
+---
+
+**Task**: Make an important paragraph on your website stand out with classes.  
+**Task**: Add some other classes to give your website a little more flavour.
+
+---
+
+## 3.4 Layout
+
+We've changed the size and appearance of individual things on the page. Another important part of styling your website is changing how all of the components fit together. We call this _layout_, as in, how the elements are _laid out_ on the page.
+
+### Inline and Block Elements
+
+You've probably already noticed that some elements flow vertically. `h1` and `p` elements all start on their own lines. These are called _block elements_. They create blocks to fit their content and flow vertically down the page.
+
+Other elements flow with their surrounding text. `em` and `strong` do not start new lines. These elements are called _inline elements_. They fit inline with text and flow horizontally along the page. Except when they reach the end of the line, at this point they flow like words do and wrap to the beginning of the next line. Line breaks can even appear inside inline elements.
+
+A good rule to remember at this point is that it makes sense to put inline elements inside block elements, but you should not put block elements inside inline elements. Later we will explore _inline block_ elements which allow you to do this.
+
+```html
+<p><em>This makes sense</em></p>
+<em><p>This does not!</p></em>
+```
+
+### `div` and `span`
+
+Sometimes you want an element that doesn't really have any meaning, just an extra container to apply styles to. `p` or `h1` don't really make sense in this case.
+
+There are elements that have no intrinsic properties other than that they are either inline or block elements. These are `span` and `div` which are inline and block elements respectively.
+
+```html
+<span>I am an inline element</span>
+<div>I am a block element</div>
+```
+
+Let's put one of these to use. The content on our website is much too wide. The text fits the width of the screen and this can get very hard to read.
+
+To fix this, we can create a new class for our content, called `main-content`.
+
+```css
+.main-content {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+```
+
+Some new CSS properties there, which we will explain in a moment. However, if we wrap our content in this:
+
+```html
+<div class="main-content">
+    Your website content
+</div>
+```
+
+We see something that is much easier to read!
+
+![](markdown_images/css-content-container.jpg)
+
+That image is still _massive_. Later on we'll turn it into a hero.
+
+---
+
+**Task**: Add some kind of content container to your website to make text more readable.
+
+---
+
+### The Box Model
+
+In the previous section we started adding CSS properties like `margin` and `width`. These contribute to the size of an element, and are part of the _box model_. This is best described with a diagram, [courtesy of MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model).
+
+![](markdown_images/css-box-model.png)
+
+Basically, the size of an element is made up of these four components:
+
+- **Content**: The size of the content of an element, such as the words or the size of the image.
+- **Padding**: The space between the content and the border of the element. You will still see the background of the element in this space.
+- **Border**: The an extra space surrounding the element, that can be filled with colour.
+- **Margin**: The space between this element and other elements.
+
+These dimensions can be specified in every direction (left, right, top, bottom).
+
+Try experimenting with the properties using this class:
+
+```css
+.box-model-test {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid black;
+  background: red;
+}
+```
+
+![](markdown_images/css-box-model-test.png)
+
+*The pixel unit*: We've been setting these dimensions in terms of `px`, which represents one pixel on the screen. Another way of thinking of these is something very, small. A border of width `1px` would be a hairline border.
+
+*What's the deal with* `margin: auto`? If a block, fixed width element has `margin-left` and `margin-right` set to `auto`, it will centre itself in the middle of the page. Not intuitive, but very useful!
+
+---
+
+**Task**: Experiment with the box model properties.
+**Challenge**: Adding a direction to `margin`, `padding`, or `border` makes it only operate in that direction (such as `padding-left`). Experiment with those properties.
+**Challenge**: Emphasise another area of your website by putting it in a coloured box with some padding.
+
+---
+
+### Making a Button
+
+I want the links at the bottom of my website to stand out a bit more, like the bold buttons I see on other websites. I want to create a new class, `button`, that I can apply to them to make them stand out a bit more.
+
+Here is the class, with comments added.
+
+```css
+/* These are comments, they are here only for you to read
+   and don't affect the output in any way. */
+.button {
+    /* Make the element inline block. See below for more explanation. */
+    display: inline-block;
+
+    /* Add some padding to keep the text far away from the edges. */
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+
+    /* Add some spacing between buttons */
+    margin-right: 1em;
+    margin-bottom: 1em;
+
+    /* A bright background with light text (replace with your own colour) */
+    background: #5887FF;
+    color: #F2F7F9;
+
+    /* Make the corners slightly rounded */
+    border-radius: 4px;
+
+    /* Links are usually underlined, let's turn that off */
+    text-decoration: none;
+}
+```
+
+We added this particular property, `display: inline-block`. This made each element with the button class an _inline block_ element, which is a combination of inline and block elements. This simply means they flow with text (horizontally, but not across line breaks) and follow the box model like block elements. Inline block elements can contain block elements.
+
+Adding this class to all of the links in the resources section yields a big improvement:
+
+![](markdown_images/css-buttons.png)
+
+---
+
+**Task**: Emphasise some of the links on your website by turning them into buttons.  
+**Challenge**: Can you add some more flair to your buttons? Try adding a border or exploring the use of `box-shadow`.
+
+---
+
+## 3.5 Pseudo Classes and Transitions
+
+When the mouse hovers over the button, and when we click on it, nothing changes on the button to reflect our interaction.
+
+There are selectors in CSS called _pseudo classes, they reflect the particular state that an element is in. For example, if we want to make our buttons _lighter_ when we hover over them and _darker_ when they're pressed (active), we can do that with pseudo classes.
+
+```css
+.button:hover {
+    background: #91B0FF;
+}
+
+.button:active {
+    background: #374e89;
+
+    /* Make the button a little smaller */
+    transform: scale(0.9);
+}
+```
+
+![](markdown_images/css-buttons-hover.gif)
+
+But these colour and size changes are quite jolty. Instead of snapping instantly, what if the changes happened over time? There is a CSS property for that, called `transition`. Adding a declaration in your button class (the main one), will make the changes smooth.
+
+```css
+.button {
+    /* All of your other CSS 
+       ...
+       ...
+     */
+    
+    /* Changes because of the pseudo classes below should happen over time.
+       0.2s means 0.2 seconds. */
+    transition: 0.2s;
+}
+```
+
+![](markdown_images/css-buttons-transition.gif)
+
+Now that is smooth!
+
+---
+
+**Task**: Make your buttons respond to user input by adding pseudo class selectors.  
+**Task**: Make them change smoothly using `transition`.  
+**Challenge**: It is possible to make different properties change at different speed (e.g. the colour fades over 0.2s but the size over 1s). Can you figure out how to do this?
+
+---
+
+## 3.6 The Hero
+
+Since the inception of my web design tips website, I've wanted a big bold hero section at the top of the website. I'm finally going to make it.
+
+I'm going to create two classes, one for the image background and one for the text. Firstly, the image background
+
+```css
+.hero-container {
+    /* Add a lot of padding so we can see a lot of the image */
+    padding-top: 150px;
+    padding-bottom: 150px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    /* Set the background to an image */
+    background: url(desk.jpeg);
+
+    /* Make the image cover the entirety of the hero */
+    background-size: cover;
+    background-position: center;
+
+    /* Put the text in the middle */
+    text-align: center;
+}
+```
+
+Then I'm going to remove my `h1` and `img` at the top of my main container, and put this _outside_ of it, at the **root of the body tag**.
+
+```html
+<body>
+    <div class="hero-container">
+        <h1>Web Design Tips</h1>
+    </div>
+    <div class="main-content">
+        The rest of the website
+    </div>
+</body>
+```
+
+![](markdown_images/css-hero-first.jpg)
+
+That's a start! One thing I notice immediately is that ugly white border around the hero. This is default padding that most browsers add to websites. We can remove it fairly easily:
+
+```css
+html, body {
+    margin: 0;
+    padding: 0;
+}
+```
+
+![](markdown_images/css-hero-nopadding.jpg)
+
+Much better!
+
+Finally, let's do something about the text. I want it to be darker, and be in all caps with a lot of spacing between the letters. CSS lets me do all of those things. I make a new class for the heading.
+
+```css
+.hero-heading {
+    color: #535982;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+
+    /* Removing any default margins */
+    margin: 0;
+}
+```
+
+Then I apply it to the `h1` element inside the hero.
+
+![](markdown_images/css-hero-text.jpg)
+
+And the hero is done!
+
+## 3.7 Behaving Better on Mobile
+
+A significant portion of users are viewing on a mobile device with a smaller screen. If we look at this website on such a device, we get something less than desireable.
+
+![](markdown_images/css-mobile-bad.png)
+
+This could be made a lot better. A website that works well on mobile and desktop devices (so a device of any size) is known as a _responsive_ website. Let's make our website responsive.
+
+Firstly, we need to add this tag into the `head` element. 
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+```
+
+This basically tells the browser not to scale our website to fit the device, because we'll make everything work on our own.
+
+![](markdown_images/css-mobile-meta.png)
+
+The text is a normal size now, but it's cut off. This is due to the parts of the website that are a fixed size. There are two of things that are fixed size at the moment:
+
+- The content container
+- The video embed
+
+We'll fix them one at a time. For the main content container, we'll use `max-width` to make sure it is never wider than the screen.
+
+```css
+.main-content {
+  /* Be 600px wide, but no wider than the container */
+  width: 600px;
+  max-width: 100%;
+
+  /* Add some padding for when it is the width of the screen. 
+     box-sizing is required to fix a quirk with how width works. */
+  padding: 20px;
+  box-sizing: border-box;
+
+  /* Centre horizontally */
+  margin-left: auto;
+  margin-right: auto;
+}
+```
+
+As for the video, making it responsive isn't straight-forward. There's a website, [Embed Responsively](http://embedresponsively.com/) that gives a responsive embed code for some services (YouTube being one of them). I can use the embed code it gives me in place of the embed code I put in before.
+
+![](markdown_images/css-mobile-done.png)
+
+And now, the website behaves on mobile.
+
+---
+
+**Task**: Make your website _responsive_ so it can work well on mobile devices.  
+**Challenge**: _Media queries_ in CSS allow you to apply different styles at different screen sizes. For example, you could make your text slightly smaller. Can you figure out how to use them?
+
+## 3.8 Further Reading
+
+We've dramatically improved this website by using CSS. View the final result in the [example-02-css folder](../example-02-css).
+
+You now have the foundations to start exploring a bunch of different concepts.
+
+Firstly, every website you visit is research. If you see something you like, and want to figure out how it works, most browsers give you the ability to do this. Most of the time, you can right click an element and select something like "inspect". Then you get a panel that gives you information about the HTML and the CSS of the element you selected:
+
+![](markdown_images/css-inspect.jpg)
+
+As well as that, here are some links worth exploring:
+
+- Want to check out CSS properties? [This almanac](https://css-tricks.com/almanac/) has an overview of every CSS property and selector. 
+- Interested in learning more about CSS selectors? Try out [CSS Diner](https://flukeout.github.io/), a game that uses CSS selectors to select food.
+- Want to create more complex layouts? Checkout [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/), a set of CSS properties for creating flexible layouts.
+- Don't care too much for designing your own websites? [Bootstrap](https://getbootstrap.com/) is an extremely popular set of CSS styles. All you have to do is add classes to your elements.
 
 # 4. JavaScript: Make it Interactive
 

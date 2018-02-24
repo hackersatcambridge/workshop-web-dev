@@ -1,0 +1,116 @@
+/* Browsers pad the website by default, we don't want that. */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Apply some basic colours and fonts */
+body {
+  background: #F2F7F9;
+  color: #535982;
+  font-family: 'Muli', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #8A9E62;
+}
+
+a {
+  font-weight: bold;
+  color: #5887FF;
+}
+
+/* Emphasise the introduction text by making it bigger */
+.introduction-text {
+  font-size: 1.2em;
+}
+
+/* Where most of the content of our website lives */
+.main-content {
+  /* Be 600px wide, but no wider than the container */
+  width: 600px;
+  max-width: 100%;
+
+  /* Add some padding for when it is the width of the screen. 
+     box-sizing is required to fix a quirk with how width works. */
+  padding: 20px;
+  box-sizing: border-box;
+
+  /* Centre horizontally */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button {
+    /* Make the element inline block. See below for more explanation. */
+    display: inline-block;
+
+    /* Add some padding to keep the text far away from the edges. */
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+
+    /* Add some spacing between buttons */
+    margin-right: 1em;
+    margin-bottom: 1em;
+
+    /* A bright background with light text (replace with your own colour) */
+    background: #5887FF;
+    color: #F2F7F9;
+
+    /* Make the corners slightly rounded */
+    border-radius: 4px;
+
+    /* Links are usually underlined, let's turn that off */
+    text-decoration: none;
+
+    /* Changes because of the pseudo classes below should happen over time.
+       0.2s means 0.2 seconds. */
+    transition: 0.2s;
+}
+
+/* Change buttons when they are hovered by the mouse */
+.button:hover {
+    background: #91B0FF;
+}
+
+/* Change buttons when they are pressed (active) */
+.button:active {
+    background: #374e89;
+
+    /* Make the button a little smaller */
+    transform: scale(0.9);
+}
+
+/* Styles for our big, bold hero */
+.hero-container {
+  /* Add a lot of padding so we can see a lot of the image */
+  padding-top: 150px;
+  padding-bottom: 150px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  /* Push the content below the hero further down */
+  margin-bottom: 40px;
+
+  /* Set the background to an image */
+  background: url(desk.jpeg);
+
+  /* Make the image cover the entirety of the hero */
+  background-size: cover;
+  background-position: center;
+
+  /* Put the text in the middle */
+  text-align: center;
+}
+
+.hero-heading {
+    color: #535982;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+
+    /* Removing any default margins */
+    margin: 0;
+}
+
