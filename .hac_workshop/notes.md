@@ -658,7 +658,7 @@ Adding this class to all of the links in the resources section yields a big impr
 
 When the mouse hovers over the button, and when we click on it, nothing changes on the button to reflect our interaction.
 
-There are selectors in CSS called _pseudo classes, they reflect the particular state that an element is in. For example, if we want to make our buttons _lighter_ when we hover over them and _darker_ when they're pressed (active), we can do that with pseudo classes.
+There are selectors in CSS called _pseudo_ classes, they reflect the particular state that an element is in. For example, if we want to make our buttons _lighter_ when we hover over them and _darker_ when they're pressed (active), we can do that with pseudo classes.
 
 ```css
 .button:hover {
@@ -777,7 +777,7 @@ And the hero is done!
 
 ## 3.7 Behaving Better on Mobile
 
-A significant portion of users are viewing on a mobile device with a smaller screen. If we look at this website on such a device, we get something less than desireable.
+A significant portion of users are viewing on a mobile device with a smaller screen. If we look at this website on such a device, we get something less than desirable.
 
 ![](markdown_images/css-mobile-bad.png)
 
