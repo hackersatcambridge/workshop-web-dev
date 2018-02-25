@@ -306,13 +306,13 @@ body {
 }
 ```
 
-To tell your browser to use this file for your html document, you need to add an HTML tag in your `head` element (the stuff the user can't see).
+Recall the `head` element. You put this _outside_ of the `body` element to group information the user can't see directly on the page. Previously, we put the title of the website in there, as that was something not shown on the page. Declaration of your styles is similar. To tell your browser to use the CSS file, you need to add an HTML tag in your `head` element.
 
 ```html
 <link rel="stylesheet" href="main.css" />
 ```
 
-This is simply saying "use this file I'm giving you as a stylesheet". Notice the `main.css` in the `href` attribute matches the name we gave the file eariler.
+The `link` element is saying "use the file given (`main.css`) in some way". The `rel` attribute indicates _how_ the browser should use the file - in this case as a stylesheet. In summary: "use this file I'm giving you to add styles to the bag". Notice the `main.css` in the `href` attribute matches the name we gave the file earlier.
 
 Save everything and refresh the page, you should see a beautiful sea of blue.
 
@@ -525,7 +525,7 @@ A good rule to remember at this point is that it makes sense to put inline eleme
 
 Sometimes you want an element that doesn't really have any meaning, just an extra container to apply styles to. `p` or `h1` don't really make sense in this case.
 
-There are elements that have no intrinsic properties other than that they are either inline or block elements. These are `span` and `div` which are inline and block elements respectively.
+There are elements that have no intrinsic properties other than that they are either inline or block elements. They're like a blank canvas for us to our ideas that don't fit in the pre-defined set of HTML elements. These are `span` and `div` which are inline and block elements respectively.
 
 ```html
 <span>I am an inline element</span>
@@ -614,7 +614,7 @@ Here is the class, with comments added.
 
 ```css
 /* These are comments, they are here only for you to read
-   and don't affect the output in any way. */
+   and don't change the output in any way. */
 .button {
     /* Make the element inline block. See below for more explanation. */
     display: inline-block;
@@ -651,6 +651,7 @@ Adding this class to all of the links in the resources section yields a big impr
 
 **Task**: Emphasise some of the links on your website by turning them into buttons.  
 **Challenge**: Can you add some more flair to your buttons? Try adding a border or exploring the use of `box-shadow`.
+**Challenge**: Can you emphasise other parts of your website using the box model?
 
 ---
 
