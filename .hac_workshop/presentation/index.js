@@ -13,7 +13,7 @@ function WorkshopContents(_ref) {
     subsections: ['Setting up a Website Project', 'Getting Content on the Screen with Basic HTML', 'Advanced HTML tags']
   }, {
     name: '3. CSS: Adding Style',
-    subsections: []
+    subsections: ['Changing the Look of Elements', 'Colours and Fonts', 'Laying out Elements on the Page', 'Responding to User Input', 'Behaving Well on Mobile']
   }, {
     name: '4. JavaScript: Make it Interactive',
     subsections: []
@@ -87,10 +87,82 @@ PopOver.show = function () {
   };
 };
 
-function PopupSlide(_ref7) {
-  var _ref7$show = _ref7.show,
-      show = _ref7$show === undefined ? false : _ref7$show,
-      children = _ref7.children;
+function InlineBlock(_ref7) {
+  var showBlock = _ref7.showBlock,
+      showInline = _ref7.showInline;
+
+  function wordsToInlines(words) {
+    return words.split(' ').map(function (word, index) {
+      return _jsx('div', {
+        className: 'InlineBlock__inline'
+      }, index, word);
+    });
+  }
+
+  return _jsx('div', {
+    className: 'InlineBlock ' + (showBlock ? 'InlineBlock--showBlock' : '') + ' ' + (showInline ? 'InlineBlock--showInline' : '')
+  }, void 0, _jsx('div', {
+    className: 'InlineBlock__block'
+  }, void 0, wordsToInlines('Lorem ipsum dolor sit amet, sonet audiam theophrastus ex vim, mea ei enim liberavisse interpretaris.')), _jsx('div', {
+    className: 'InlineBlock__block'
+  }, void 0, wordsToInlines('Vel ei ferri praesent. Per id exerci civibus, no commodo numquam ocurreret vim. Ex vim possim everti, mel insolens laboramus ex, mei verear integre eu.')));
+}
+
+InlineBlock.showBlock = function () {
+  return function (state) {
+    return Object.assign({}, state, { showBlock: true });
+  };
+};
+InlineBlock.showInline = function () {
+  return function (state) {
+    return Object.assign({}, state, { showInline: true });
+  };
+};
+
+var _ref9 = _jsx('div', {
+  className: 'BoxModel__box'
+}, void 0, 'Content');
+
+var _ref10 = _jsx('div', {
+  className: 'BoxModel__box'
+}, void 0, 'Content');
+
+function BoxModel(_ref8) {
+  var showContent = _ref8.showContent,
+      showPadding = _ref8.showPadding,
+      showBorder = _ref8.showBorder,
+      showMargin = _ref8.showMargin;
+
+  return _jsx('div', {
+    className: 'BoxModel ' + (showContent ? 'BoxModel--showContent' : '') + ' ' + (showPadding ? 'BoxModel--showPadding' : '') + ' ' + (showBorder ? 'BoxModel--showBorder' : '') + ' ' + (showMargin ? 'BoxModel--showMargin' : '')
+  }, void 0, _ref9, _ref10);
+}
+
+BoxModel.showContent = function () {
+  return function (state) {
+    return Object.assign({}, state, { showContent: true });
+  };
+};
+BoxModel.showPadding = function () {
+  return function (state) {
+    return Object.assign({}, state, { showPadding: true });
+  };
+};
+BoxModel.showBorder = function () {
+  return function (state) {
+    return Object.assign({}, state, { showBorder: true });
+  };
+};
+BoxModel.showMargin = function () {
+  return function (state) {
+    return Object.assign({}, state, { showMargin: true });
+  };
+};
+
+function PopupSlide(_ref11) {
+  var _ref11$show = _ref11.show,
+      show = _ref11$show === undefined ? false : _ref11$show,
+      children = _ref11.children;
 
   var yTransform = (show ? 0 : 100) + '%';
   return _jsx(debut.Transform, {
@@ -111,12 +183,12 @@ PopupSlide.hide = function () {
   };
 };
 
-function HeaderedSlide(_ref8) {
-  var children = _ref8.children,
-      header = _ref8.header,
-      footer = _ref8.footer,
-      _ref8$className = _ref8.className,
-      className = _ref8$className === undefined ? '' : _ref8$className;
+function HeaderedSlide(_ref12) {
+  var children = _ref12.children,
+      header = _ref12.header,
+      footer = _ref12.footer,
+      _ref12$className = _ref12.className,
+      className = _ref12$className === undefined ? '' : _ref12$className;
 
   return _jsx('div', {
     className: 'HeaderedSlide ' + className
@@ -129,8 +201,8 @@ function HeaderedSlide(_ref8) {
   }, void 0, footer));
 }
 
-function StrongCode(_ref9) {
-  var children = _ref9.children;
+function StrongCode(_ref13) {
+  var children = _ref13.children;
 
   return _jsx('span', {
     className: 'StrongCode',
@@ -138,10 +210,10 @@ function StrongCode(_ref9) {
   });
 }
 
-function Appear(_ref10) {
-  var show = _ref10.show,
-      component = _ref10.component,
-      children = _ref10.children;
+function Appear(_ref14) {
+  var show = _ref14.show,
+      component = _ref14.component,
+      children = _ref14.children;
 
   return React.createElement(component, { className: 'Appear ' + (show ? 'Appear--show' : '') }, children);
 }
@@ -239,8 +311,48 @@ var component = debut.createComponentFromReact(_jsx('div', {
   side: 'bottom',
   label: 'Self-closing!'
 }, void 0, ' />'))), _jsx(HeaderedSlide, {}, void 0, _jsx('h1', {}, void 0, 'Is there a video tag?')), _jsx(WorkshopContents, {
-  name: 'contents-2',
+  name: 'contents-3',
   index: 1
+}), _jsx(HeaderedSlide, {
+  header: _jsx('h1', {}, void 0, 'CSS Syntax')
+}, void 0, _jsx(debut.SyntaxHighlight, {
+  language: 'css'
+}, void 0, _jsx(PopOver, {
+  name: 'css-1-selector',
+  side: 'left',
+  label: 'Selector'
+}, void 0, 'body'), ' {\n', '  background: blue;\n', '  ', _jsx(PopOver, {
+  name: 'css-1-property',
+  side: 'left',
+  label: 'Property'
+}, void 0, 'color'), ': ', _jsx(PopOver, {
+  name: 'css-1-value',
+  side: 'bottom',
+  label: 'Value'
+}, void 0, 'white'), ';\n', '}')), _jsx(HeaderedSlide, {
+  header: _jsx('h1', {}, void 0, 'Colours')
+}, void 0, _jsx('img', {
+  style: { height: 600 },
+  src: '../markdown_images/css-colors.gif'
+})), _jsx(HeaderedSlide, {
+  header: _jsx('h1', {}, void 0, 'Classes')
+}, void 0, _jsx('div', {}, void 0, _jsx('div', {
+  style: { marginBottom: '1rem' }
+}, void 0, _jsx(debut.SyntaxHighlight, {
+  language: 'html'
+}, void 0, '<p class="intro-text">I am the selected element.</p>')), _jsx(debut.SyntaxHighlight, {
+  language: 'css'
+}, void 0, '.intro-text {\n', '  font-size: 1.2em;\n', '}'))), _jsx(HeaderedSlide, {
+  header: _jsx('h1', {}, void 0, 'Inline & Block')
+}, void 0, _jsx(InlineBlock, {
+  name: 'css-2-inline-block'
+})), _jsx(HeaderedSlide, {
+  header: _jsx('h1', {}, void 0, 'The Box Model')
+}, void 0, _jsx(BoxModel, {
+  name: 'css-3-box-model'
+})), _jsx(WorkshopContents, {
+  name: 'contents-3',
+  index: 2
 })), _jsx(PopupSlide, {
   name: 'html-task-1'
 }, void 0, _jsx(TaskSlide, {}, void 0, _jsx('div', {}, void 0, 'Create a folder for your website.'), _jsx('div', {}, void 0, 'Create a ', _jsx('code', {}, void 0, 'index.html'), ' file and open it in your browser'), _jsx('div', {}, void 0, 'Think about a topic for your website.'), _jsx('div', {}, void 0, 'What do you want it to look like? Look at other websites for inspiration.'))), _jsx(PopupSlide, {
@@ -248,8 +360,14 @@ var component = debut.createComponentFromReact(_jsx('div', {
 }, void 0, _jsx(TaskSlide, {}, void 0, _jsx('div', {}, void 0, 'Add your setup code for an HTML document (doctype, html and body tags).'), _jsx('div', {}, void 0, 'Create some content with ', _jsx('code', {}, void 0, 'h1-6'), ', ', _jsx('code', {}, void 0, 'p'), ', ', _jsx('code', {}, void 0, 'em'), ' and ', _jsx('code', {}, void 0, 'strong'), ' tags.'), _jsx('div', {}, void 0, _jsx('strong', {}, void 0, 'Challenge:'), ' Can you find out what these tags do and use them? ', _jsx('code', {}, void 0, 'small'), ', ', _jsx('code', {}, void 0, 'ul'), ', ', _jsx('code', {}, void 0, 'ol'), ', ', _jsx('code', {}, void 0, 'table.')))), _jsx(PopupSlide, {
   name: 'html-task-3'
 }, void 0, _jsx(TaskSlide, {}, void 0, _jsx('div', {}, void 0, 'Add links to your website with ', _jsx('code', {}, void 0, 'a'), '.'), _jsx('div', {}, void 0, _jsx('strong', {}, void 0, 'Challenge:'), ' Do you want your website to have multiple pages? Create a second page and link to it from the first.'), _jsx('div', {}, void 0, 'Add an image or two (try pexels.com).'), _jsx('div', {}, void 0, 'Embed a video.'), _jsx('div', {}, void 0, _jsx('strong', {}, void 0, 'Challenge:'), ' Other media sites have support for embedding. Try embedding a tweet or a Facebook like button.'), _jsx('div', {}, void 0, 'Give your website a title using ', _jsx('code', {}, void 0, 'head'), ' and ', _jsx('code', {}, void 0, 'title'), '.'))), _jsx(PopupSlide, {
-  name: 'html-task-4'
-}, void 0, _jsx(TaskSlide, {}, void 0, _jsx('div', {}, void 0, 'Add links to your website with ', _jsx('code', {}, void 0, 'a'), '.'), _jsx('div', {}, void 0, 'Add an image or two (try pexels.com).'), _jsx('div', {}, void 0, 'Embed a video.'), _jsx('div', {}, void 0, 'Other media sites have support for embedding. Try embedding a tweet or a Facebook like button.')))));
+  name: 'css-task-1'
+}, void 0, _jsx(TaskSlide, {}, void 0, _jsx('div', {}, void 0, 'Add a CSS file with the given snippet, make sure your website becomes blue.'), _jsx('div', {}, void 0, 'Change the background and text to a different colour.'), _jsx('div', {}, void 0, 'Change the colour of other elements.'))), _jsx(PopupSlide, {
+  name: 'css-task-2'
+}, void 0, _jsx(TaskSlide, {}, void 0, _jsx('div', {}, void 0, 'Create a colour scheme on ', _jsx('code', {}, void 0, 'coolors.co'), '.'), _jsx('div', {}, void 0, 'Change the colours on your website to that scheme.'), _jsx('div', {}, void 0, 'Choose a font or two on ', _jsx('code', {}, void 0, 'fonts.google.com'), '.'), _jsx('div', {}, void 0, 'Change the fonts on your website to the chosen ones.'), _jsx('div', {}, void 0, _jsx('strong', {}, void 0, 'Challenge'), ': Can you make the fonts for the headings of your website different?'))), _jsx(PopupSlide, {
+  name: 'css-task-3'
+}, void 0, _jsx(TaskSlide, {}, void 0, _jsx('div', {}, void 0, 'Draw attention to some specific text on your website by making it bigger.'), _jsx('div', {}, void 0, 'Add a container to make the main content of your website a bit thinner.'), _jsx('div', {}, void 0, 'Make some links stand out more by turning them into buttons.'), _jsx('div', {}, void 0, _jsx('strong', {}, void 0, 'Challenge'), ': Add some more flair to your buttons. Look into the CSS properties ', _jsx('code', {}, void 0, 'box-shadow'), ' and ', _jsx('code', {}, void 0, 'border'), '.'), _jsx('div', {}, void 0, _jsx('strong', {}, void 0, 'Challenge'), ': Can you make other parts of your website stand out? e.g. with some padding and a different background colour.'))), _jsx(PopupSlide, {
+  name: 'css-task-4'
+}, void 0, _jsx(TaskSlide, {}, void 0, _jsx('div', {}, void 0, 'Use pseudo selectors (', _jsx('code', {}, void 0, ':hover'), ', ', _jsx('code', {}, void 0, ':active'), ') to make your buttons respond to user input.'), _jsx('div', {}, void 0, 'Use ', _jsx('code', {}, void 0, 'transition'), ' to make them change smoothly.'), _jsx('div', {}, void 0, _jsx('strong', {}, void 0, 'Challenge'), ': Can you figure out how to make different properties (e.g. size and colour) change at different speeds?'), _jsx('div', {}, void 0, 'Make your website ', _jsx('em', {}, void 0, 'responsive'), ' so that it works well on mobile websites.'), _jsx('div', {}, void 0, _jsx('strong', {}, void 0, 'Challenge'), ': There is a tool in CSS called ', _jsx('em', {}, void 0, 'media queries'), '. Can you figure out what they do and how to use them?')))));
 
 var actions = debut.actionsForComponent(component, function (action) {
   return [action('main-slider', debut.Slider.advance()), action('main-slider', debut.Slider.advance()),
@@ -258,7 +376,10 @@ var actions = debut.actionsForComponent(component, function (action) {
   action('contents-1', WorkshopContents.setIndex(0)), action('main-slider', debut.Slider.advance()), action('intro-purpose', Appear.show()), action('main-slider', debut.Slider.advance()), action('main-slider', debut.Slider.advance()),
 
   // Section 2
-  action('contents-2', WorkshopContents.setIndex(1)), action('html-task-1', PopupSlide.show()), [action('html-task-1', PopupSlide.hide()), action('main-slider', debut.Slider.advance())], action('html-1-doctype', PopOver.show()), action('html-1-opening', PopOver.show()), action('html-1-closing', PopOver.show()), action('html-1-heading', PopOver.show()), action('html-1-content', PopOver.show()), action('main-slider', debut.Slider.advance()), action('html-task-2', PopupSlide.show()), [action('html-task-2', PopupSlide.hide()), action('main-slider', debut.Slider.advance())], action('html-3-anchor', PopOver.show()), action('html-3-attribute-name', PopOver.show()), action('html-3-attribute-value', PopOver.show()), action('main-slider', debut.Slider.advance()), action('html-4-image', PopOver.show()), action('html-4-src', PopOver.show()), action('html-4-alt', PopOver.show()), action('html-4-closing', PopOver.show()), action('main-slider', debut.Slider.advance()), action('html-task-3', PopupSlide.show()), [action('html-task-3', PopupSlide.hide()), action('main-slider', debut.Slider.advance())]];
+  action('contents-2', WorkshopContents.setIndex(1)), action('html-task-1', PopupSlide.show()), [action('html-task-1', PopupSlide.hide()), action('main-slider', debut.Slider.advance())], action('html-1-doctype', PopOver.show()), action('html-1-opening', PopOver.show()), action('html-1-closing', PopOver.show()), action('html-1-heading', PopOver.show()), action('html-1-content', PopOver.show()), action('main-slider', debut.Slider.advance()), action('html-task-2', PopupSlide.show()), [action('html-task-2', PopupSlide.hide()), action('main-slider', debut.Slider.advance())], action('html-3-anchor', PopOver.show()), action('html-3-attribute-name', PopOver.show()), action('html-3-attribute-value', PopOver.show()), action('main-slider', debut.Slider.advance()), action('html-4-image', PopOver.show()), action('html-4-src', PopOver.show()), action('html-4-alt', PopOver.show()), action('html-4-closing', PopOver.show()), action('main-slider', debut.Slider.advance()), action('html-task-3', PopupSlide.show()), [action('html-task-3', PopupSlide.hide()), action('main-slider', debut.Slider.advance())],
+
+  // Section 3
+  action('contents-3', WorkshopContents.setIndex(2)), action('main-slider', debut.Slider.advance()), action('css-1-selector', PopOver.show()), action('css-1-property', PopOver.show()), action('css-1-value', PopOver.show()), action('css-task-1', PopupSlide.show()), [action('css-task-1', PopupSlide.hide()), action('main-slider', debut.Slider.advance())], action('css-task-2', PopupSlide.show()), [action('css-task-2', PopupSlide.hide()), action('main-slider', debut.Slider.advance())], action('main-slider', debut.Slider.advance()), action('css-2-inline-block', InlineBlock.showBlock()), action('css-2-inline-block', InlineBlock.showInline()), action('main-slider', debut.Slider.advance()), action('css-3-box-model', BoxModel.showContent()), action('css-3-box-model', BoxModel.showPadding()), action('css-3-box-model', BoxModel.showBorder()), action('css-3-box-model', BoxModel.showMargin()), action('css-task-3', PopupSlide.show()), [action('css-task-3', PopupSlide.hide()), action('css-task-4', PopupSlide.show())], [action('css-task-4', PopupSlide.hide()), action('main-slider', debut.Slider.advance())]];
 });
 
 ReactDOM.render(_jsx(debut.Presentation, {

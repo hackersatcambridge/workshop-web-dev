@@ -14,12 +14,6 @@ h1 {
   margin: 1.5rem 0;
 }
 
-/* #218295
- * #30919A
- * #DFD34A
- * #FA8F2A
- * #FB5E37 */
-
 /* FullSlide
    ========================================================================== */
 
@@ -104,6 +98,7 @@ h1 {
   position: absolute;
   width: 100%;
   margin-top: 1rem;
+  font-size: 0.9rem;
   padding: 0 1.5rem;
 
   transition: opacity 0.3s;
@@ -321,4 +316,75 @@ h1 {
 .BrightSlide {
   background: #6B7C93;
   color: #fff;
+}
+
+/* InlineBlock
+   ========================================================================== */
+
+.InlineBlock {
+  padding: 1rem;
+}
+
+.InlineBlock__block {
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  opacity: 0;
+  transition: 0.3s;
+  margin-bottom: 1rem;
+}
+
+.InlineBlock--showBlock .InlineBlock__block {
+  opacity: 1;
+}
+
+.InlineBlock__inline {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  margin: 0.5rem;
+  color: transparent;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.InlineBlock--showInline .InlineBlock__inline {
+  opacity: 1;
+}
+
+/* BoxModel
+   ========================================================================== */
+
+.BoxModel {
+  display: flex;
+}
+
+.BoxModel__box {
+  width: 200px;
+  height: 200px;
+  background: #4C5AA2;
+  color: #fff;
+  opacity: 0;
+  flex: 0 0 auto;
+  box-sizing: content-box;
+  border: 0 solid #428DD8;
+  border-radius: 5px;
+
+  transition: 0.5s;
+}
+
+.BoxModel--showContent .BoxModel__box {
+  opacity: 1;
+}
+
+.BoxModel--showPadding .BoxModel__box {
+  padding: 1rem;
+}
+
+.BoxModel--showBorder .BoxModel__box {
+  border-width: 5px;
+}
+
+.BoxModel--showMargin .BoxModel__box {
+  margin: 1rem;
 }
