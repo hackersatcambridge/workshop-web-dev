@@ -14,6 +14,7 @@ This workshop works well when run with a competition for best website at the end
 
 ## Links to Open for Each Section
 
+- https://hackersatcambridge.com/workshops/web-dev - The notes
 - Section 1:
    - https://developer.mozilla.org/ - Examing web design
    - https://awwapp.com/ - Online whiteboard for designing a website
@@ -22,6 +23,14 @@ This workshop works well when run with a competition for best website at the end
    - https://developer.mozilla.org/ - Documentation on the web
    - https://pexels.com/ - Finding images
    - https://youtube.com/ - Finding videos
+- Section 3:
+   - https://github.com/hackersatcambridge/workshop-web-dev/tree/master/example-01-html - Example starter
+   - https://coolors.co/ - Choosing colours
+   - https://fonts.google.com/ - Choosing fonts
+   - https://css-tricks.com/almanac/ - CSS Almanac
+   - https://flukeout.github.io/ - CSS Diner for practising selectors
+   - https://css-tricks.com/snippets/css/a-guide-to-flexbox/ - Flexbox
+   - https://getbootstrap.com/ - Bootstrap
 
 ## Practical Sections and Demonstrators
 
