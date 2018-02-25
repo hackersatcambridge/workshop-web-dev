@@ -75,7 +75,7 @@ This is just your browser showing you an empty website. We'll soon fill it with 
 
 ### An Aside About Syntax
 
-We said that we were going to learn how to present information. At first, it ain't gonna be pretty.
+We said that we were going to learn how to present information. At first, it won't be pretty.
 
 HTML is the language that is used to do this, it stands for _HyperText Markup Language_. This basically means that it takes ordinary text and gives it meaning by tagging certain parts of it. For every single website you visit, the first thing it does is load an HTML file. Here is an example:
 
@@ -495,7 +495,7 @@ We can now target elements and style them, this is great. But what if we just wa
 
 See the `.` in front of the selector in the CSS code? That's how to select a class.
 
-_em units_: We set the `font-size` of the emphasis paragraph to `1.5em`. `em` units are a relative unit, meaning it depends on the font size of its parent. So by specifying 1.2, we are saying that `.introduction-text` elements should have a font _1.2 times bigger_ than its container.
+_em units_: We set the `font-size` of the emphasis paragraph to `1.5em`. `em` units are a relative unit, meaning it depends on the font size of its parent. So by specifying 1.2, we are saying that `.introduction-text` elements should have a font _1.2 times bigger_ than its container. There are also _rem_ units (**root** em), which are in terms of the font size at the root of the website.
 
 ---
 
@@ -556,7 +556,7 @@ We see something that is much easier to read!
 
 ![](markdown_images/css-content-container.jpg)
 
-That image is still _massive_. Later on we'll turn it into a hero.
+That image is still _massive_. Later on we'll be turning it into that big hero section at the start of the website.
 
 ---
 
@@ -658,7 +658,7 @@ Adding this class to all of the links in the resources section yields a big impr
 
 When the mouse hovers over the button, and when we click on it, nothing changes on the button to reflect our interaction.
 
-There are selectors in CSS called _pseudo classes, they reflect the particular state that an element is in. For example, if we want to make our buttons _lighter_ when we hover over them and _darker_ when they're pressed (active), we can do that with pseudo classes.
+There are selectors in CSS called _pseudo classes_, they reflect the particular state that an element is in. For example, if we want to make our buttons _lighter_ when we hover over them and _darker_ when they're pressed (active), we can do that with pseudo classes.
 
 ```css
 .button:hover {
@@ -777,7 +777,7 @@ And the hero is done!
 
 ## 3.7 Behaving Better on Mobile
 
-A significant portion of users are viewing on a mobile device with a smaller screen. If we look at this website on such a device, we get something less than desireable.
+A significant portion of users are viewing on a mobile device with a smaller screen. If we look at this website on such a device, we get something less than desirable.
 
 ![](markdown_images/css-mobile-bad.png)
 
