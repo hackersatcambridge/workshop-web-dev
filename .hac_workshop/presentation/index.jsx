@@ -227,6 +227,12 @@ const component = debut.createComponentFromReact(
       <HeaderedSlide header={<h1>Inline &amp; Block</h1>}>
         <InlineBlock name="css-2-inline-block" />
       </HeaderedSlide>
+      <HeaderedSlide header={<h1>Div &amp; Span</h1>}>
+        <debut.SyntaxHighlight language="html">
+          {`<div>I am a block element</div>\n`}
+          {`<span>I am an inline element</span>\n`}
+        </debut.SyntaxHighlight>
+      </HeaderedSlide>
       <HeaderedSlide header={<h1>The Box Model</h1>}>
         <BoxModel name="css-3-box-model" />
       </HeaderedSlide>
@@ -357,6 +363,7 @@ const actions = debut.actionsForComponent(component, action => [
   action('main-slider', debut.Slider.advance()),
   action('css-2-inline-block', InlineBlock.showBlock()),
   action('css-2-inline-block', InlineBlock.showInline()),
+  action('main-slider', debut.Slider.advance()),
   action('main-slider', debut.Slider.advance()),
   action('css-3-box-model', BoxModel.showContent()),
   action('css-3-box-model', BoxModel.showPadding()),

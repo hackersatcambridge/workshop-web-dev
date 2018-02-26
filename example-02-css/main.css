@@ -1,44 +1,44 @@
 /* Browsers pad the website by default, we don't want that. */
 html, body {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 /* Apply some basic colours and fonts */
 body {
-  background: #F2F7F9;
-  color: #535982;
-  font-family: 'Muli', sans-serif;
+    background: #F2F7F9;
+    color: #535982;
+    font-family: 'Muli', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #8A9E62;
+    color: #8A9E62;
 }
 
 a {
-  font-weight: bold;
-  color: #5887FF;
+    font-weight: bold;
+    color: #5887FF;
 }
 
 /* Emphasise the introduction text by making it bigger */
 .introduction-text {
-  font-size: 1.2em;
+    font-size: 1.2em;
 }
 
 /* Where most of the content of our website lives */
 .main-content {
-  /* Be 600px wide, but no wider than the container */
-  width: 600px;
-  max-width: 100%;
+    /* Be 600px wide, but no wider than the container */
+    width: 600px;
+    max-width: 100%;
 
-  /* Add some padding for when it is the width of the screen. 
-     box-sizing is required to fix a quirk with how width works. */
-  padding: 20px;
-  box-sizing: border-box;
+    /* Add some padding for when it is the width of the screen. 
+      box-sizing is required to fix a quirk with how width works. */
+    padding: 20px;
+    box-sizing: border-box;
 
-  /* Centre horizontally */
-  margin-left: auto;
-  margin-right: auto;
+    /* Centre horizontally */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .button {
@@ -85,24 +85,24 @@ a {
 
 /* Styles for our big, bold hero */
 .hero-container {
-  /* Add a lot of padding so we can see a lot of the image */
-  padding-top: 150px;
-  padding-bottom: 150px;
-  padding-left: 20px;
-  padding-right: 20px;
+    /* Add a lot of padding so we can see a lot of the image */
+    padding-top: 150px;
+    padding-bottom: 150px;
+    padding-left: 20px;
+    padding-right: 20px;
 
-  /* Push the content below the hero further down */
-  margin-bottom: 40px;
+    /* Push the content below the hero further down */
+    margin-bottom: 40px;
 
-  /* Set the background to an image */
-  background: url(desk.jpeg);
+    /* Set the background to an image */
+    background: url(desk.jpeg);
 
-  /* Make the image cover the entirety of the hero */
-  background-size: cover;
-  background-position: center;
+    /* Make the image cover the entirety of the hero */
+    background-size: cover;
+    background-position: center;
 
-  /* Put the text in the middle */
-  text-align: center;
+    /* Put the text in the middle */
+    text-align: center;
 }
 
 .hero-heading {
