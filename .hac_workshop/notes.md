@@ -855,9 +855,9 @@ At some point, we may want to
 - Add some kind of functionality
 - Display information that HTML or CSS fundamentally can't
 
-Clearly, the technologies at our disposal don't let us do this. This is where JavaScript (often called JS) comes in. JavaScript is a _programming language_. This simply means we can use it to do basically anything a computer is capable of. This is really powerful.
+Clearly, the technologies at our disposal don't let us do this. This is where JavaScript (often abbreviated as JS) comes in. JavaScript is a _programming language_. This simply means we can use it to do basically anything a computer is capable of. This is really powerful.
 
-**Note**: You may here people talk about Java*Script* or just Java. Confusingly, these are two separate and very different programming languages! Calling one of them the other may offend someone. You have been warned.
+**Note**: You may hear people talk about Java*Script* or just Java. Confusingly, these are two separate and very different programming languages! Calling one of them the other may offend someone. You have been warned.
 
 If you have never programmed before, this section may be confusing. If you find yourself struggling and unable to work through the practical examples, I recommend you try something that dives into the subject a little more comprehensively. Our Introduction to Programming workshop (TODO: link) is a great place to do this.
 
@@ -897,7 +897,7 @@ _At the end of your `<body>` element_, add this element:
 <script type="text/javascript" src="main.js"></script>
 ```
 
-You may think this is very counter intuitive:
+You may think this is very counter-intuitive:
 
 - We are using a `script` element with `type` and `src` attributes as opposed to a `link` element with `rel` and `href` attributes, despite explaining exactly the same thing
 - This tag is not self closing, yet it doesn't contain anything
@@ -940,7 +940,7 @@ With CSS, we briefly looked at the concept of "inspecting" an element in the bro
 
 Your experience will differ browser by browser. We recommend, and will be demonstrating with, Google Chrome for the smoothest development experience.
 
-Firstly, you need to open them. This varies by browser/OS but it is usually one of the following:
+Firstly, you need to open the developer tools. This varies by browser/OS but it is usually one of the following:
 
 - Press `F12` (Windows)
 - Press `cmd+alt+I` (Mac)
