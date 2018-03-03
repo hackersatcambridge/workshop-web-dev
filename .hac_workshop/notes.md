@@ -976,7 +976,7 @@ console.log('I am a real web developer');
 
 And you should get a result like this:
 
-![](markdown_images/js-console.log.png)
+![](markdown_images/js-console-log.png)
 
 ---
 
