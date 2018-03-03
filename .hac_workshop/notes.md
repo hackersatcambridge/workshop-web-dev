@@ -925,9 +925,9 @@ This alert function is generally considered bad practice for web developers. It 
 
 ---
 
-**Task**: Create a `main.js` file and add the example snippet to it.
-**Task**: Refer to the file using a `script` tag at the end of the body
-**Task**: Check that you see an alert on the page. Can you change the text it displays?
+**Task**: Create a `main.js` file and add the example snippet to it.  
+**Task**: Refer to the file using a `script` tag at the end of the body  
+**Task**: Check that you see an alert on the page. Can you change the text it displays?  
 **Task**: Delete the code in your script and apologise to your browser.
 
 ---
@@ -1348,6 +1348,12 @@ Then you can follow the link you're given (e.g [https://web-design-tips.netlify.
 ![](markdown_images/publish-finished.jpg)
 
 You can give this link to other people and they will be able to view your website as well.
+
+--
+
+**Task**: Publish your website using Netlify
+
+--
 
 # 5.2 Domain Name
 
