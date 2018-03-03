@@ -848,4 +848,513 @@ As well as that, here are some links worth exploring:
 
 # 4. JavaScript: Make it Interactive
 
+So far we've explored how to display information on our webpage using HTML and how to style it using CSS. 
+
+At some point, we may want to
+
+- Add some kind of functionality
+- Display information that HTML or CSS fundamentally can't
+
+Clearly, the technologies at our disposal don't let us do this. This is where JavaScript (often called JS) comes in. JavaScript is a _programming language_. This simply means we can use it to do basically anything a computer is capable of. This is really powerful.
+
+**Note**: You may here people talk about Java*Script* or just Java. Confusingly, these are two separate and very different programming languages! Calling one of them the other may offend someone. You have been warned.
+
+If you have never programmed before, this section may be confusing. If you find yourself struggling and unable to work through the practical examples, I recommend you try something that dives into the subject a little more comprehensively. Our Introduction to Programming workshop (TODO: link) is a great place to do this.
+
+If you are familiar with programming, this section should be very straight-forward.
+
+## 4.1 Your First Script
+
+### Concepts of Programming
+
+Unlike HTML and CSS, I can't demonstrate you a simple example that encompasses all possible syntax in JS. Instead, I give you a metaphor: JavaScript is a series of instructions that the computer will execute one after the other. 
+
+To make an example, consider my original website design from section 1. I claimed one of the features I wanted was a _colour chooser_. Now I can explain exactly what I mean by that. I want a button, that when clicked, gives the user a random colour that they can use in their CSS. It's an inspiration tool.
+
+If my website could understand instructions in plain English, I'd tell it something like this:
+
+```
+whenever the user clicks a button:
+  create a random colour
+  display this colour to the user
+```
+
+JavaScript is just a series of instructions like these, but one that my website can understand.
+
+### Writing a Script
+
+Just like CSS, we're going to make a new file and tell the website how to use it. Create a new file called `main.js` (`main` once more by convention, `js` for "JavaScript"). Fill it with this snippet:
+
+```javascript
+alert('I can write JavaScript');
+```
+
+Now we need to tell the page to use it.
+
+_At the end of your `<body>` element_, add this element:
+
+```html
+<script type="text/javascript" src="main.js"></script>
+```
+
+You may think this is very counter intuitive:
+
+- We are using a `script` element with `type` and `src` attributes as opposed to a `link` element with `rel` and `href` attributes, despite explaining exactly the same thing
+- This tag is not self closing, yet it doesn't contain anything
+- This is in the body element, yet its something the user can't see
+
+For the first two points I can't offer you a satisfying explanation other than "decisions made by people a long time ago". However, the reason it is in the body element is slightly justifiable. In fact, it can go in the head tag and for now it will work. But our script will eventually be modifying elements on the page, which means they have to exist first. When the browser sees the head tag, it hasn't yet seen the body tag and all the elements it contains, so neither can our script.
+
+There are other ways around this, but we will use this one for now.
+
+What you should see, provided everything is working, is this:
+
+![](markdown_images/js-alert.png)
+
+An unhelpful popup before the webpage has even loaded. 
+
+If we dissect the code a little bit more, we can make some sense of it:
+
+```javascript
+alert('I can write JavaScript');
+```
+
+`alert`, the thing before the brackets, is what should be done (create an alert popup), and the text in quotes inside the brackets is some extra information. In this case, it represents the text to put in the popup.
+
+This alert function is generally considered bad practice for web developers. It has a whole bunch of undesirable features, but right now it very quickly demonstrated that the script was being loaded and executed. Now, we will delete it, and never write it again.
+
+---
+
+**Task**: Create a `main.js` file and add the example snippet to it.
+**Task**: Refer to the file using a `script` tag at the end of the body
+**Task**: Check that you see an alert on the page. Can you change the text it displays?
+**Task**: Delete the code in your script and apologise to your browser.
+
+---
+
+## 4.2 The Developer Console
+
+### Opening the Console
+
+With CSS, we briefly looked at the concept of "inspecting" an element in the browser so we could better understand the code we were writing. What you were opening in actuality was the browser's developer tools in one of its various modes. The developer tools are an invaluable resource and come with many useful features to help you build websites. In the JavaScript world, it is impossible to get by without it.
+
+Your experience will differ browser by browser. We recommend, and will be demonstrating with, Google Chrome for the smoothest development experience.
+
+Firstly, you need to open them. This varies by browser/OS but it is usually one of the following:
+
+- Press `F12` (Windows)
+- Press `cmd+alt+I` (Mac)
+- Press `ctrl+shit+I` (Windows)
+- Right clicking and selecting "inspect element"
+- Some combination of toolbars
+
+We're not sure about Linux, could someone have a tinker and let us know?
+
+In Safari you will need to enable the Developer Tools by checking the option in `Preferences > Advanced > Show Develop Menu` first.
+
+Once the developer tools are open, you will have a variety of tabs to choose from. Select the _Console_ tab and you should see something similar to this:
+
+![](markdown_images/js-open-console.jpg)
+
+### Running Code in the Console
+
+The first use of the console is that you can write JavaScript code directly into it, to see what it does. There's usually a space to write some code, next to a `›` symbol. Write some code (such as your alert snippet from above), and see what happens.
+
+JavaScript can also perform arbitrary mathematics. `+ - * /` mean add, subtract, multiply and divide respectively.
+
+Try entering some expressions into the console and seeing what your browser makes of them.
+
+![](markdown_images/js-interact-console.png)
+
+### Printing to Console
+
+One of the most common actions of a developer is to print to some output to make sure things are going smoothly. JS is no exception. Where your unsightly `alert` was (inside `main.js`), you can now make a `console.log` which is far more elegant.
+
+```js
+console.log('I am a real web developer');
+```
+
+And you should get a result like this:
+
+![](markdown_images/js-console.log.png)
+
+---
+
+**Task**: Verify that you can open the developer tools and console in your browser  
+**Task**: Try to run some JavaScript code directly in the console  
+**Task**: Print something to the console from your `main.js` script using `console.log`
+
+---
+
+## 4.3 Changing Things on the Page with the DOM
+
+We're kind of operating in a vacuum here, we can bring annoying popup windows and print to a hidden console but how do we do something useful? At some point, you'll have to start interacting with, and modifying the HTML on the page.
+
+JS has a well-defined way of doing this, through what is called the DOM (Document Object Model).
+
+This is just a fancy way of saying that we can locate and manipulate every HTML element as a JavaScript object, and have that reflected in our web page.
+
+We can use our browser's console to experiment with this concept. Let's try typing out the following:
+
+```js
+document.querySelector('h1');
+```
+
+The console will spit out an object. That string we passed to it was a CSS selector. This object represents the `<h1>` element on your page. Some browsers will let you hover over it to very easily see that this is the case. For example in Chrome:
+
+![](markdown_images/js-show-h1.jpg)
+
+We can manipulate this object now. In your brower console try typing
+
+```js
+document.querySelector('h1').innerHTML = 'Dynamically changed heading';
+```
+
+![](markdown_images/js-change-h1.jpg)
+
+---
+
+**Task**: Using the console and `document.querySelector`, change the contents of some elements.  
+**Challenge**: You can also change the values of attributes (such as `href` for `a` elements). Can you figure out how to do this?
+
+---
+
+## 4.4 Creating the Colour Creator
+
+Now that we understand how to change elements on the page, we can try to make something useful.
+
+Back to this colour selector. I want to generate a random colour on demand, and present it to the user. We'll worry about this "on demand" part later. For now, let's try and create a random colour.
+
+### The UI
+
+I'm going to add the following HTML and CSS to my website
+
+```html
+<h2>Colour Creator</h2>
+<div class="color-creator-box"></div>
+```
+
+```css
+.color-creator-box {
+    width: 100%;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 4px; 
+    font-size: 2em;
+    text-align: center;
+}
+```
+
+Which looks like the following:
+
+![](markdown_images/js-color-creator-ui.png)
+
+To create new colours:
+
+  - I'm going to randomly create a CSS colour.
+  - Change the background colour of the box to that colour.
+  - Change the text contents of the box to that colour.
+
+### Creating a Random Colour
+
+One particular form of colours in CSS is called _rgb_, they look like this (this colour in particular is a light green).
+
+```
+rgb(123, 252, 99)
+```
+
+The important point is that those three numbers can be any number between 0 and 255. All we need to do is generate three random numbers between 0 and 255 and format them like `rgb(x,y,z)`.
+
+How do we do this? With maths!
+
+The code `Math.random()` in JavaScript will give us a random (decimal) number between 0 and 1 (not including 1). If we multiply it by 256, we get a random (decimal) number between 0 and 256 (not including 256). If we round it down, we get a random whole number between 0 and 255 - exactly what we want. `Math.floor(number)` gives us the number rounded down. Here's an example
+
+```javascript
+// These are comments in JavaScript. They don't do anything,
+// but are useful for us to read!
+
+Math.random() // gives us e.g. 0.32
+(Math.random()) * 256 // 0.32 * 256 = 81.92
+Math.floor(Math.random() * 256) // 81.92 rounded down = 81
+```
+
+So to create three of these random numbers, we use the expression `Math.floor(Math.random() * 256)` thre times.
+
+Firstly we create these three numbers and give them names using a `let` statement. `let x = y` basically means, every time I ask for `x`, give me `y`.
+
+```javascript
+let red = Math.floor(Math.random() * 256);
+let green = Math.floor(Math.random() * 256);
+let blue = Math.floor(Math.random() * 256);
+```
+
+I used the names `red`, `green` and `blue` because that's what the three numbers actually represent, but that's not so important.
+
+Now we can actually create a _string_ representing the colour. A string is what we originally passed to `console.log`, it is just text. The neat thing about strings, is when you add them together, it creates a new string with them placed one after the other.
+
+```javascript
+'web' + 'developer' // 'webdeveloper'
+```
+
+So we can create a new string for our colour:
+
+```javascript
+let color = 'rgb(' + red + ',' + green + ',' + blue + ')';
+```
+
+You can check it works by logging it
+
+```javascript
+// This should print something like 'rgb(123,20,40)'
+console.log(color);
+```
+
+---
+
+**Task**: Experiment with randomness in the console. Can you create a random number from 5 to 25?
+
+---
+
+### Applying the Colour
+
+Finally we want to make the box match what we've just created.
+
+```javascript
+// Give this value a nume so we can refer back to it
+let colorCreatorBox = document.querySelector('.color-creator-box');
+
+// .style lets us modify CSS styles directly
+colorCreatorBox.style.background = color;
+
+// Set the text so the user can copy and paste the colour
+colorCreatorBox.innerHTML = color;
+```
+
+![](markdown_images/js-color-creator-box-working.png)
+
+---
+
+**Task**: Use JavaScript to add some interesting, dynamic behaviour to your page.
+
+---
+
+## 4.5 Events and Interactivity
+
+Currently the colour is set every time we load the page. I would like a way to change the colour on the click of a button. I want to add a way for the user to interact with my website in a richer way.
+
+Events are precisely the way to do this. Every time the user interacts with an HTML element in some way (for example, clicking on it), it will emit an event. We can attach some code to this event to be run every time the event is emitted. 
+
+TLDR; we can make code happen when someone clicks on something.
+
+### Adding the UI: A Button
+
+I'm going to add the following HTML just above the creator box:
+
+```html
+<button>Create a new colour</button>
+```
+
+The `<button>` element is what it sounds like, something that can be clicked on.
+
+![](markdown_images/js-button-1.png)
+
+That's a wee bit ugly, let's add our button class to it.
+
+```html
+<button class="button">Create a new colour</button>
+```
+
+![](markdown_images/js-button-2.png)
+
+Something doesn't look right here! The button looks different from the other buttons. This is because button elements have some default styles that we need to override. So we add the following to our `button` CSS class:
+
+```css
+font-family: inherit;
+font-size: inherit;
+font-weight: bold;
+border: 0;
+cursor: pointer;
+```
+
+Look up the properties and values if you're interested in exactly what they mean.
+
+![](markdown_images/js-button-3.png)
+
+This is looking much better.
+
+Finally, we add a new class, `color-changer-button`, so we can target this element specifically in JavaScript.
+
+```html
+<button class="button color-changer-button">Create a new colour</button>
+```
+
+---
+
+**Task**: Add a button to your page, and make it match the other buttons on your website.
+
+---
+
+### Making Code Re-Usable with Functions
+
+Because we want code to be run every time something is clicked, it isn't sufficient to run it once. We need to wrap it up so we can run it on demand.
+
+This is what functions in JavaScript are for, they let you wrap up pieces of code to re-run them at any time. You've used them already: `alert`, `console.log` and `document.querySelector` are all functions.
+
+Here's the code for creating the new colour:
+
+```javascript
+let red = Math.floor(Math.random() * 255);
+let green = Math.floor(Math.random() * 255);
+let blue = Math.floor(Math.random() * 255);
+
+let color = 'rgb(' + red + ',' + green + ',' + blue + ')';
+
+let colorCreatorBox = document.querySelector('.color-creator-box');
+
+colorCreatorBox.style.background = color;
+colorCreatorBox.innerHTML = color;
+```
+
+Instead, we can wrap it in a function:
+
+```javascript
+let colorCreatorBox = document.querySelector('.color-creator-box');
+
+function createNewColor() {
+    let red = Math.floor(Math.random() * 255);
+    let green = Math.floor(Math.random() * 255);
+    let blue = Math.floor(Math.random() * 255);
+
+    let color = 'rgb(' + red + ',' + green + ',' + blue + ')';
+
+    colorCreatorBox.style.background = color;
+    colorCreatorBox.innerHTML = color;
+}
+```
+
+We don't put `let colorCreatorBox = ...` in the function because this value will be the same every time the function is run. No point doing it every time.
+
+You'll notice if you run the page now, nothing will happen, because this code has been saved for later use.
+
+If you then run that function, by on a later line writing
+
+```javascript
+createNewColor();
+```
+
+You'll see the colour box change! In fact, you can run it in the console directly.
+
+![](markdown_images/js-create-color-console.png)
+
+---
+
+**Task**: Make some of your code reusable by putting it in a function.
+
+---
+
+### Events
+
+We want this code to be run every time the button is clicked.
+
+```javascript
+let colorCreatorButton = document.querySelector('.color-creator-button');
+
+colorCreatorButton.addEventListener('click', createNewColor);
+```
+
+The magic is in that `addEventListener` part. This is saying, every time this thing happens (clicking in this case), execute the function I've given you.
+
+Finally, we add a transition to the box.
+
+```css
+.color-creator-box {
+    /* all the other styles */
+
+    transition: 0.2s;
+}
+```
+
+![](markdown_images/js-color-creator-done.gif)
+
+Perfect!
+
+---
+
+**Task**: Use events to make something happen on your website when someone clicks on something.
+
+---
+
+## 4.6 Another Example: Big Text Checker
+
+Here's a new feature I want to add to my website. A _big text checker_. You type in text, and it shows you what it looks like big. Here's a demonstration.
+
+![](markdown_images/js-big-text.gif)
+
+We won't walk through how to create this, you can instead [read the code directly from the examples]((https://github.com/hackersatcambridge/workshop-web-dev/tree/master/example-03-javascript)). See if you can make sense of it!
+
+What if we were to put HTML into that box?
+
+![](markdown_images/js-big-text-h1.png)
+
+My website appears to accept it without a problem. Is this fine?
+
+Let's consider this snippet of HTML:
+
+```html
+<meta htttp-equiv="refresh" content="0;url=https://google.com" />
+```
+
+It's basically saying, _take me to google.com straight away_. What happens when we type it in?
+
+![](markdown_images/js-inject.gif)
+
+Eep! It actually does it. Consider this when you're accepting user inputs - people can break your things in unexpected ways. There are solutions, but they require a deeper understanding of how all of this works.
+
+## 4.7 Further Reading
+
+We've finished adding some dynamic and interactive behaviour to the website. If you want to see the finished result, check out the [example-03-javascript folder](https://github.com/hackersatcambridge/workshop-web-dev/tree/master/example-03-javascript).
+
+JavaScript can do a lot more. You can build entire web applications or even computer games. Here are some places to jump to if you're interested to know more:
+
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/Reference/API) documents just about everything you can do with JavaScript. It's dense, but comprehensive.
+- For keen programmers: [Node.js](https://nodejs.org/) is a server-side JavaScript runtime. It lets you run JavaScript _outside_ of the browser.
+- [npm](https://www.npmjs.com/) hosts hundreds of thousands of libraries for JavaScript, that let you build things quickly by building off other people's work.
+- [p5.js](https://p5js.org/) is a tool for quickly drawing graphics in a website. We've even [written a blog post about it](https://medium.com/hackers-at-cambridge/computer-graphics-for-everyone-c80fc7e89cdc).
+- [React](https://reactjs.org/) is a library for building complex web applications.
+- [Phaser](https://phaser.io/) is a framework for creating games inside websites.
+
 # 5. Publishing your website
+
+Now we've created a website that we're happy with, we want people to be able to view it. Publishing a website allows people to go to a URL (e.g. hackersatcambridge.com) and view it. There are lots of ways to publish websites, but we're going to focus on one easy service called Netlify.
+
+# 5.1 Publishing on Netlify
+
+Head over to [Netlify](https://netlify.com) and log in or create an account. You should be presented with a simple dashboard.
+
+![](markdown_images/publish-netlify-dash.png)
+
+You can then drag the folder representing with your website files and it will publish it.
+
+![](markdown_images/publish-netlify-deployed.png)
+
+You can see it gives you a rather random name. You can change it in the settings to a name of your choosing.
+
+![](markdown_images/publish-netlify-change-name.png) 
+
+Then you can follow the link you're given (e.g [https://web-design-tips.netlify.com](https://web-design-tips.netlify.com)), and you will see your website in front of you.
+
+![](markdown_images/publish-finished.jpg)
+
+You can give this link to other people and they will be able to view your website as well.
+
+# 5.2 Domain Name
+
+One thing you may want is your own _domain name_. So instead of going to your-website.netlify.com, you can go to your-website.com. The Netlify page for your website has a big "step 2" explaining how to do this. You will need to buy a domain name.
+
+# 5.3 Finished!
+
+Congratulations! We've created a website from nothing. We've learned how to display information with HTML, style it with CSS, add new behaviour with JavaScript and then publish it for the world to access.
+
+There is so much more you can do with the web. The best way to learn is by doing. Why not jump into one of those further reading links in the previous sections and learn something new?

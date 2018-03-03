@@ -58,6 +58,7 @@ a {
     /* A bright background with light text (replace with your own colour) */
     background: #5887FF;
     color: #F2F7F9;
+    font-weight: bold;
 
     /* Make the corners slightly rounded */
     border-radius: 4px;
@@ -68,6 +69,12 @@ a {
     /* Changes because of the pseudo classes below should happen over time.
        0.2s means 0.2 seconds. */
     transition: 0.2s;
+
+    /* <button> elements come with some default styles that we want to reverse */
+    border: 0;
+    font-size: inherit;
+    font-family: inherit;
+    cursor: pointer;
 }
 
 /* Change buttons when they are hovered by the mouse */
@@ -112,4 +119,29 @@ a {
 
     /* Removing any default margins */
     margin: 0;
+}
+
+.color-creator-box {
+    width: 100%;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 4px; 
+    font-size: 2em;
+    text-align: center;
+}
+
+.big-text-display {
+    font-size: 1.5em;
+    text-align: center;
+    min-height: 200px;
+}
+
+.big-text-input {
+    width: 100%;
+    font-size: inherit;
+    font-family: inherit;
+    box-sizing: border-box;
+    padding: 5px;
 }
