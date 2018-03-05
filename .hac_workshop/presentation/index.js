@@ -1,6 +1,14 @@
 'use strict';
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _jsx = function () { var REACT_ELEMENT_TYPE = typeof Symbol === "function" && Symbol.for && Symbol.for("react.element") || 0xeac7; return function createRawReactElement(type, props, key, children) { var defaultProps = type && type.defaultProps; var childrenLength = arguments.length - 3; if (!props && childrenLength !== 0) { props = {}; } if (props && defaultProps) { for (var propName in defaultProps) { if (props[propName] === void 0) { props[propName] = defaultProps[propName]; } } } else if (!props) { props = defaultProps || {}; } if (childrenLength === 1) { props.children = children; } else if (childrenLength > 1) { var childArray = Array(childrenLength); for (var i = 0; i < childrenLength; i++) { childArray[i] = arguments[i + 3]; } props.children = childArray; } return { $$typeof: REACT_ELEMENT_TYPE, type: type, key: key === undefined ? null : '' + key, ref: null, props: props, _owner: null }; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 function WorkshopContents(_ref) {
   var index = _ref.index;
@@ -16,7 +24,7 @@ function WorkshopContents(_ref) {
     subsections: ['Changing the Look of Elements', 'Colours and Fonts', 'Laying out Elements on the Page', 'Responding to User Input', 'Behaving Well on Mobile']
   }, {
     name: '4. JavaScript: Make it Interactive',
-    subsections: []
+    subsections: ['Performing Arbitrary "Instructions"', 'Changing the Page Dynamically', 'Using Events make it Interactive']
   }, {
     name: '5. Publishing your Website',
     subsections: []
@@ -224,6 +232,72 @@ Appear.show = function () {
   };
 };
 
+var _ref17 = _jsx('div', {
+  className: 'EventButton__button EventButton__button--left'
+}, void 0, 'Action');
+
+var _ref18 = _jsx('div', {
+  className: 'EventButton__button EventButton__button--right'
+}, void 0, 'Event');
+
+var EventButton = function (_React$PureComponent) {
+  _inherits(EventButton, _React$PureComponent);
+
+  function EventButton() {
+    var _ref15;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, EventButton);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref15 = EventButton.__proto__ || Object.getPrototypeOf(EventButton)).call.apply(_ref15, [this].concat(args))), _this), _this.state = {
+      fired: 0
+    }, _this.onClick = function () {
+      if (_this.props.canFire) {
+        _this.setState(function (_ref16) {
+          var fired = _ref16.fired;
+          return { fired: fired + 1 };
+        });
+      }
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(EventButton, [{
+    key: 'render',
+    value: function render() {
+      return _jsx('div', {
+        className: 'EventButton',
+        onMouseDown: this.onClick
+      }, void 0, _ref17, _ref18, this.firedBalls);
+    }
+  }, {
+    key: 'firedBalls',
+    get: function get() {
+      var firedBalls = [];
+
+      for (var index = 0; index < this.state.fired; index += 1) {
+        firedBalls.push(_jsx('div', {
+          className: 'EventButton__emitBall'
+        }, index));
+      }
+
+      return firedBalls;
+    }
+  }]);
+
+  return EventButton;
+}(React.PureComponent);
+
+EventButton.activateFiring = function () {
+  return function (state) {
+    return Object.assign({}, state, { canFire: true });
+  };
+};
+
 var component = debut.createComponentFromReact(_jsx('div', {
   className: 'FullSlide'
 }, void 0, _jsx(debut.Slider, {
@@ -355,9 +429,18 @@ var component = debut.createComponentFromReact(_jsx('div', {
 }, void 0, _jsx(BoxModel, {
   name: 'css-3-box-model'
 })), _jsx(WorkshopContents, {
-  name: 'contents-3',
+  name: 'contents-4',
   index: 2
-})), _jsx(PopupSlide, {
+}), _jsx(HeaderedSlide, {
+  header: _jsx('h1', {}, void 0, 'Events')
+}, void 0, _jsx(EventButton, {
+  name: 'js-event-button'
+})), _jsx(WorkshopContents, {
+  name: 'contents-5',
+  index: 3
+}), _jsx(HeaderedSlide, {
+  className: 'BrightSlide'
+}, void 0, _jsx('h1', {}, void 0, 'You have a website!'))), _jsx(PopupSlide, {
   name: 'html-task-1'
 }, void 0, _jsx(TaskSlide, {}, void 0, _jsx('div', {}, void 0, 'Create a folder for your website.'), _jsx('div', {}, void 0, 'Create a ', _jsx('code', {}, void 0, 'index.html'), ' file and open it in your browser'), _jsx('div', {}, void 0, 'Think about a topic for your website.'), _jsx('div', {}, void 0, 'What do you want it to look like? Look at other websites for inspiration.'))), _jsx(PopupSlide, {
   name: 'html-task-2'
@@ -371,7 +454,17 @@ var component = debut.createComponentFromReact(_jsx('div', {
   name: 'css-task-3'
 }, void 0, _jsx(TaskSlide, {}, void 0, _jsx('div', {}, void 0, 'Draw attention to some specific text on your website by making it bigger.'), _jsx('div', {}, void 0, 'Add a container to make the main content of your website a bit thinner.'), _jsx('div', {}, void 0, 'Make some links stand out more by turning them into buttons.'), _jsx('div', {}, void 0, _jsx('strong', {}, void 0, 'Challenge'), ': Add some more flair to your buttons. Look into the CSS properties ', _jsx('code', {}, void 0, 'box-shadow'), ' and ', _jsx('code', {}, void 0, 'border'), '.'), _jsx('div', {}, void 0, _jsx('strong', {}, void 0, 'Challenge'), ': Can you make other parts of your website stand out? e.g. with some padding and a different background colour.'))), _jsx(PopupSlide, {
   name: 'css-task-4'
-}, void 0, _jsx(TaskSlide, {}, void 0, _jsx('div', {}, void 0, 'Use pseudo selectors (', _jsx('code', {}, void 0, ':hover'), ', ', _jsx('code', {}, void 0, ':active'), ') to make your buttons respond to user input.'), _jsx('div', {}, void 0, 'Use ', _jsx('code', {}, void 0, 'transition'), ' to make them change smoothly.'), _jsx('div', {}, void 0, _jsx('strong', {}, void 0, 'Challenge'), ': Can you figure out how to make different properties (e.g. size and colour) change at different speeds?'), _jsx('div', {}, void 0, 'Make your website ', _jsx('em', {}, void 0, 'responsive'), ' so that it works well on mobile websites.'), _jsx('div', {}, void 0, _jsx('strong', {}, void 0, 'Challenge'), ': There is a tool in CSS called ', _jsx('em', {}, void 0, 'media queries'), '. Can you figure out what they do and how to use them?')))));
+}, void 0, _jsx(TaskSlide, {}, void 0, _jsx('div', {}, void 0, 'Use pseudo selectors (', _jsx('code', {}, void 0, ':hover'), ', ', _jsx('code', {}, void 0, ':active'), ') to make your buttons respond to user input.'), _jsx('div', {}, void 0, 'Use ', _jsx('code', {}, void 0, 'transition'), ' to make them change smoothly.'), _jsx('div', {}, void 0, _jsx('strong', {}, void 0, 'Challenge'), ': Can you figure out how to make different properties (e.g. size and colour) change at different speeds?'), _jsx('div', {}, void 0, 'Make your website ', _jsx('em', {}, void 0, 'responsive'), ' so that it works well on mobile websites.'), _jsx('div', {}, void 0, _jsx('strong', {}, void 0, 'Challenge'), ': There is a tool in CSS called ', _jsx('em', {}, void 0, 'media queries'), '. Can you figure out what they do and how to use them?'))), _jsx(PopupSlide, {
+  name: 'js-task-1'
+}, void 0, _jsx(TaskSlide, {}, void 0, _jsx('div', {}, void 0, 'Add a ', _jsx('code', {}, void 0, 'main.js'), ' file with the alert snippet.'), _jsx('div', {}, void 0, 'Use a ', _jsx('code', {}, void 0, 'sript'), ' element to add the script to your page. Can you change the text that is displayed?'), _jsx('div', {}, void 0, 'Open the developer console and type out some expressions to see what they do.'), _jsx('div', {}, void 0, 'Replace your ', _jsx('code', {}, void 0, 'alert'), ' with ', _jsx('code', {}, void 0, 'console.log'), ' and make sure the text is printed to the console.'))), _jsx(PopupSlide, {
+  name: 'js-task-2'
+}, void 0, _jsx(TaskSlide, {}, void 0, _jsx('div', {}, void 0, 'Change an element on your page using the console.'), _jsx('div', {}, void 0, _jsx('strong', {}, void 0, 'Challenge'), ': Can you figure out how to change attributes on elements? (e.g. ', _jsx('code', {}, void 0, 'href'), ')'), _jsx('div', {}, void 0, 'Experiment with randomness and combining strings in the console.'), _jsx('div', {}, void 0, 'Use these skills to add some dynamic behaviour to your website, like the colour creator.'))), _jsx(PopupSlide, {
+  name: 'js-task-3'
+}, void 0, _jsx(TaskSlide, {}, void 0, _jsx('div', {}, void 0, 'Wrap some of your code in a function so you can re-use it. Try calling it from the console.'), _jsx('div', {}, void 0, 'Bind this function to an event, making your new behaviour interactive.'))), _jsx(PopupSlide, {
+  name: 'publish-task-1'
+}, void 0, _jsx(TaskSlide, {}, void 0, _jsx('div', {}, void 0, 'Publish your website using Netlify.'))), _jsx(PopupSlide, {
+  name: 'publish-task-2'
+}, void 0, _jsx(TaskSlide, {}, void 0, _jsx('div', {}, void 0, 'Make any adjustments to your website (don\'t forget to publish again!).'), _jsx('div', {}, void 0, 'Submit your website to the competition using the link on the notes.')))));
 
 var actions = debut.actionsForComponent(component, function (action) {
   return [action('main-slider', debut.Slider.advance()), action('main-slider', debut.Slider.advance()),
@@ -383,7 +476,13 @@ var actions = debut.actionsForComponent(component, function (action) {
   action('contents-2', WorkshopContents.setIndex(1)), action('html-task-1', PopupSlide.show()), [action('html-task-1', PopupSlide.hide()), action('main-slider', debut.Slider.advance())], action('html-1-doctype', PopOver.show()), action('html-1-opening', PopOver.show()), action('html-1-closing', PopOver.show()), action('html-1-heading', PopOver.show()), action('html-1-content', PopOver.show()), action('main-slider', debut.Slider.advance()), action('html-task-2', PopupSlide.show()), [action('html-task-2', PopupSlide.hide()), action('main-slider', debut.Slider.advance())], action('html-3-anchor', PopOver.show()), action('html-3-attribute-name', PopOver.show()), action('html-3-attribute-value', PopOver.show()), action('main-slider', debut.Slider.advance()), action('html-4-image', PopOver.show()), action('html-4-src', PopOver.show()), action('html-4-alt', PopOver.show()), action('html-4-closing', PopOver.show()), action('main-slider', debut.Slider.advance()), action('html-task-3', PopupSlide.show()), [action('html-task-3', PopupSlide.hide()), action('main-slider', debut.Slider.advance())],
 
   // Section 3
-  action('contents-3', WorkshopContents.setIndex(2)), action('main-slider', debut.Slider.advance()), action('css-1-selector', PopOver.show()), action('css-1-property', PopOver.show()), action('css-1-value', PopOver.show()), action('css-task-1', PopupSlide.show()), [action('css-task-1', PopupSlide.hide()), action('main-slider', debut.Slider.advance())], action('css-task-2', PopupSlide.show()), [action('css-task-2', PopupSlide.hide()), action('main-slider', debut.Slider.advance())], action('main-slider', debut.Slider.advance()), action('css-2-inline-block', InlineBlock.showBlock()), action('css-2-inline-block', InlineBlock.showInline()), action('main-slider', debut.Slider.advance()), action('main-slider', debut.Slider.advance()), action('css-3-box-model', BoxModel.showContent()), action('css-3-box-model', BoxModel.showPadding()), action('css-3-box-model', BoxModel.showBorder()), action('css-3-box-model', BoxModel.showMargin()), action('css-task-3', PopupSlide.show()), [action('css-task-3', PopupSlide.hide()), action('css-task-4', PopupSlide.show())], [action('css-task-4', PopupSlide.hide()), action('main-slider', debut.Slider.advance())]];
+  action('contents-3', WorkshopContents.setIndex(2)), action('main-slider', debut.Slider.advance()), action('css-1-selector', PopOver.show()), action('css-1-property', PopOver.show()), action('css-1-value', PopOver.show()), action('css-task-1', PopupSlide.show()), [action('css-task-1', PopupSlide.hide()), action('main-slider', debut.Slider.advance())], action('css-task-2', PopupSlide.show()), [action('css-task-2', PopupSlide.hide()), action('main-slider', debut.Slider.advance())], action('main-slider', debut.Slider.advance()), action('css-2-inline-block', InlineBlock.showBlock()), action('css-2-inline-block', InlineBlock.showInline()), action('main-slider', debut.Slider.advance()), action('main-slider', debut.Slider.advance()), action('css-3-box-model', BoxModel.showContent()), action('css-3-box-model', BoxModel.showPadding()), action('css-3-box-model', BoxModel.showBorder()), action('css-3-box-model', BoxModel.showMargin()), action('css-task-3', PopupSlide.show()), [action('css-task-3', PopupSlide.hide()), action('css-task-4', PopupSlide.show())], [action('css-task-4', PopupSlide.hide()), action('main-slider', debut.Slider.advance())],
+
+  // Section 4
+  action('contents-4', WorkshopContents.setIndex(3)), action('js-task-1', PopupSlide.show()), [action('js-task-1', PopupSlide.hide()), action('js-task-2', PopupSlide.show())], [action('js-task-2', PopupSlide.hide()), action('main-slider', debut.Slider.advance())], action('js-event-button', EventButton.activateFiring()), action('js-task-3', PopupSlide.show()), [action('js-task-3', PopupSlide.hide()), action('main-slider', debut.Slider.advance())],
+
+  // Section 5
+  action('contents-5', WorkshopContents.setIndex(4)), action('publish-task-1', PopupSlide.show()), [action('publish-task-1', PopupSlide.hide()), action('main-slider', debut.Slider.advance())], action('publish-task-2', PopupSlide.show())];
 });
 
 ReactDOM.render(_jsx(debut.Presentation, {

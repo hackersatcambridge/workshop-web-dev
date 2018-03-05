@@ -22,12 +22,16 @@ function WorkshopContents({ index }) {
         'Colours and Fonts',
         'Laying out Elements on the Page',
         'Responding to User Input',
-        'Behaving Well on Mobile'
+        'Behaving Well on Mobile',
       ],
     },
     {
       name: '4. JavaScript: Make it Interactive',
-      subsections: [],
+      subsections: [
+        'Performing Arbitrary "Instructions"',
+        'Changing the Page Dynamically',
+        'Using Events make it Interactive',
+      ],
     },
     {
       name: '5. Publishing your Website',
@@ -133,6 +137,40 @@ function Appear({ show, component, children }) {
 
 Appear.show = () => state => Object.assign({ }, state, { show: true });
 
+class EventButton extends React.PureComponent {
+  state = {
+    fired: 0,
+  };
+
+  get firedBalls() {
+    let firedBalls = [];
+
+    for (let index = 0; index < this.state.fired; index += 1) {
+      firedBalls.push(<div className="EventButton__emitBall" key={index}/>);
+    }
+
+    return firedBalls;
+  }
+
+  onClick = () => {
+    if (this.props.canFire) {
+      this.setState(({ fired }) => ({ fired: fired + 1 }));
+    }
+  }
+
+  render() {
+    return (
+      <div className="EventButton" onMouseDown={this.onClick}>
+        <div className="EventButton__button EventButton__button--left">Action</div>
+        <div className="EventButton__button EventButton__button--right">Event</div>
+        {this.firedBalls}
+      </div>
+    );
+  }
+}
+
+EventButton.activateFiring = () => state => Object.assign({ }, state, { canFire: true });
+
 const component = debut.createComponentFromReact(
   <div className="FullSlide">
     <debut.Slider name="main-slider" direction="left">
@@ -236,7 +274,14 @@ const component = debut.createComponentFromReact(
       <HeaderedSlide header={<h1>The Box Model</h1>}>
         <BoxModel name="css-3-box-model" />
       </HeaderedSlide>
-      <WorkshopContents name="contents-3" index={2} />
+      <WorkshopContents name="contents-4" index={2} />
+      <HeaderedSlide header={<h1>Events</h1>}>
+        <EventButton name="js-event-button" />
+      </HeaderedSlide>
+      <WorkshopContents name="contents-5" index={3} />
+      <HeaderedSlide className="BrightSlide">
+        <h1>You have a website!</h1>
+      </HeaderedSlide>
     </debut.Slider>
     <PopupSlide name="html-task-1">
       <TaskSlide>
@@ -295,6 +340,39 @@ const component = debut.createComponentFromReact(
         <div><strong>Challenge</strong>: Can you figure out how to make different properties (e.g. size and colour) change at different speeds?</div>
         <div>Make your website <em>responsive</em> so that it works well on mobile websites.</div>
         <div><strong>Challenge</strong>: There is a tool in CSS called <em>media queries</em>. Can you figure out what they do and how to use them?</div>
+      </TaskSlide>
+    </PopupSlide>
+    <PopupSlide name="js-task-1">
+      <TaskSlide>
+        <div>Add a <code>main.js</code> file with the alert snippet.</div>
+        <div>Use a <code>sript</code> element to add the script to your page. Can you change the text that is displayed?</div>
+        <div>Open the developer console and type out some expressions to see what they do.</div>
+        <div>Replace your <code>alert</code> with <code>console.log</code> and make sure the text is printed to the console.</div>
+      </TaskSlide>
+    </PopupSlide>
+    <PopupSlide name="js-task-2">
+      <TaskSlide>
+        <div>Change an element on your page using the console.</div>
+        <div><strong>Challenge</strong>: Can you figure out how to change attributes on elements? (e.g. <code>href</code>)</div>
+        <div>Experiment with randomness and combining strings in the console.</div>
+        <div>Use these skills to add some dynamic behaviour to your website, like the colour creator.</div>
+      </TaskSlide>
+    </PopupSlide>
+    <PopupSlide name="js-task-3">
+      <TaskSlide>
+        <div>Wrap some of your code in a function so you can re-use it. Try calling it from the console.</div>
+        <div>Bind this function to an event, making your new behaviour interactive.</div>
+      </TaskSlide>
+    </PopupSlide>
+    <PopupSlide name="publish-task-1">
+      <TaskSlide>
+        <div>Publish your website using Netlify.</div>
+      </TaskSlide>
+    </PopupSlide>
+    <PopupSlide name="publish-task-2">
+      <TaskSlide>
+        <div>Make any adjustments to your website (don't forget to publish again!).</div>
+        <div>Submit your website to the competition using the link on the notes.</div>
       </TaskSlide>
     </PopupSlide>
   </div>
@@ -378,6 +456,33 @@ const actions = debut.actionsForComponent(component, action => [
     action('css-task-4', PopupSlide.hide()),
     action('main-slider', debut.Slider.advance()),
   ],
+
+  // Section 4
+  action('contents-4', WorkshopContents.setIndex(3)),
+  action('js-task-1', PopupSlide.show()),
+  [
+    action('js-task-1', PopupSlide.hide()),
+    action('js-task-2', PopupSlide.show()),
+  ],
+  [
+    action('js-task-2', PopupSlide.hide()),
+    action('main-slider', debut.Slider.advance()),
+  ],
+  action('js-event-button', EventButton.activateFiring()),
+  action('js-task-3', PopupSlide.show()),
+  [
+    action('js-task-3', PopupSlide.hide()),
+    action('main-slider', debut.Slider.advance()),
+  ],
+
+  // Section 5
+  action('contents-5', WorkshopContents.setIndex(4)),
+  action('publish-task-1', PopupSlide.show()),
+  [
+    action('publish-task-1', PopupSlide.hide()),
+    action('main-slider', debut.Slider.advance()),
+  ],
+  action('publish-task-2', PopupSlide.show()),
 ]);
 
 ReactDOM.render(<debut.Presentation actions={actions} root={component} size={{ width: 1600, height: 900 }} />, document.getElementById('root'));

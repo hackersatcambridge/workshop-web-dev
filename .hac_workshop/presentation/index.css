@@ -388,3 +388,91 @@ h1 {
 .BoxModel--showMargin .BoxModel__box {
   margin: 1rem;
 }
+
+/* EventButton
+   ========================================================================== */
+
+.EventButton {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 0.4rem;
+}
+
+.EventButton__button {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+
+  width: 200px;
+  height: 200px;
+  margin-left: -100px;
+  margin-top: -100px;
+  border-radius: 50%;
+
+  background: #c7d93d;
+
+  line-height: 200px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #fff;
+  text-shadow: 0 4px rgba(0, 0, 0, 0.15);
+  font-size: 2.5em;
+
+  transition-property: transform, box-shadow;
+  transition-duration: 0.1s;
+
+  background: none;
+  border: none;
+  user-select: none;
+}
+
+.EventButton__button--left {
+  left: calc(50% - 300px);
+  background: #1ca527;
+  box-shadow: -10px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.EventButton__button--right {
+  left: calc(50% + 300px);
+  background: #955527;
+  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.EventButton:active .EventButton__button--left {
+  transform: scale(0.8);
+  box-shadow: -4px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.EventButton:active .EventButton__button--right {
+  transform: scale(1.2);
+  box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.EventButton__emitBall {
+  position: absolute;
+  top: 65%;
+  left: calc(50% + 300px);
+  z-index: -1;
+
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  margin-left: -20px;
+  border-radius: 50%;
+
+  background: orange;
+
+  animation: EventButton__emitBall__goUp 1.5s 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes EventButton__emitBall__goUp {
+  0% { transform: translate(0, 0px); }
+  100% { transform: translate(0, -1200px); }
+}

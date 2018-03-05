@@ -859,7 +859,7 @@ Clearly, the technologies at our disposal don't let us do this. This is where Ja
 
 **Note**: You may here people talk about Java*Script* or just Java. Confusingly, these are two separate and very different programming languages! Calling one of them the other may offend someone. You have been warned.
 
-If you have never programmed before, this section may be confusing. If you find yourself struggling and unable to work through the practical examples, I recommend you try something that dives into the subject a little more comprehensively. Our Introduction to Programming workshop (TODO: link) is a great place to do this.
+If you have never programmed before, this section may be confusing. If you find yourself struggling and unable to work through the practical examples, I recommend you try something that dives into the subject a little more comprehensively. Our [Introduction to Programming workshop](https://www.youtube.com/watch?v=spIVWmv1jnw) is a great place to do this.
 
 If you are familiar with programming, this section should be very straight-forward.
 
