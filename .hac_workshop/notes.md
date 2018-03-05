@@ -1292,7 +1292,7 @@ Here's a new feature I want to add to my website. A _big text checker_. You type
 
 ![](markdown_images/js-big-text.gif)
 
-We won't walk through how to create this, you can instead [read the code directly from the examples]((https://github.com/hackersatcambridge/workshop-web-dev/tree/master/example-03-javascript)). See if you can make sense of it!
+We won't walk through how to create this, you can instead [read the code directly from the examples](https://github.com/hackersatcambridge/workshop-web-dev/tree/master/example-03-javascript). See if you can make sense of it!
 
 What if we were to put HTML into that box?
 
@@ -1320,7 +1320,6 @@ JavaScript can do a lot more. You can build entire web applications or even comp
 
 - [MDN](https://developer.mozilla.org/en-US/docs/Web/Reference/API) documents just about everything you can do with JavaScript. It's dense, but comprehensive.
 - For keen programmers: [Node.js](https://nodejs.org/) is a server-side JavaScript runtime. It lets you run JavaScript _outside_ of the browser.
-- [npm](https://www.npmjs.com/) hosts hundreds of thousands of libraries for JavaScript, that let you build things quickly by building off other people's work.
 - [p5.js](https://p5js.org/) is a tool for quickly drawing graphics in a website. We've even [written a blog post about it](https://medium.com/hackers-at-cambridge/computer-graphics-for-everyone-c80fc7e89cdc).
 - [React](https://reactjs.org/) is a library for building complex web applications.
 - [Phaser](https://phaser.io/) is a framework for creating games inside websites.
@@ -1349,11 +1348,11 @@ Then you can follow the link you're given (e.g [https://web-design-tips.netlify.
 
 You can give this link to other people and they will be able to view your website as well.
 
---
+---
 
 **Task**: Publish your website using Netlify
 
---
+---
 
 # 5.2 Domain Name
 

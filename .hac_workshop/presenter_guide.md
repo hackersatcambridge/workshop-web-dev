@@ -31,6 +31,17 @@ This workshop works well when run with a competition for best website at the end
    - https://flukeout.github.io/ - CSS Diner for practising selectors
    - https://css-tricks.com/snippets/css/a-guide-to-flexbox/ - Flexbox
    - https://getbootstrap.com/ - Bootstrap
+- Section 4:
+   - https://developer.mozilla.org/en-US/docs/Web/CSS/color_value - How colours work in CSS
+   - https://developer.mozilla.org/en-US/docs/Web/Reference/API - Web APIs
+   - https://nodejs.org/ - Serverside JS in Node
+   - https://p5js.org/ - A tool for mucking around with graphics
+   - https://medium.com/hackers-at-cambridge/computer-graphics-for-everyone-c80fc7e89cdc - A blog post we wrote about p5
+   - https://reactjs.org/ - React, useful for building web apps
+   - https://phaser.io/ - Build games with Phaser
+- Section 5:
+   - https://netlify.com/ - Publish the website
+   - https://drive.google.com/ - to get to the results of the website competition
 
 ## Practical Sections and Demonstrators
 

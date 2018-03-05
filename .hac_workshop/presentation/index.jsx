@@ -345,7 +345,7 @@ const component = debut.createComponentFromReact(
     <PopupSlide name="js-task-1">
       <TaskSlide>
         <div>Add a <code>main.js</code> file with the alert snippet.</div>
-        <div>Use a <code>sript</code> element to add the script to your page. Can you change the text that is displayed?</div>
+        <div>Use a <code>script</code> element to add the script to your page. Can you change the text that is displayed?</div>
         <div>Open the developer console and type out some expressions to see what they do.</div>
         <div>Replace your <code>alert</code> with <code>console.log</code> and make sure the text is printed to the console.</div>
       </TaskSlide>
